@@ -1,0 +1,12 @@
+# This is an example showing that values in the app charts can be overwriten in test mode
+service:
+  port: 8080
+apife:
+  enabled: true
+ambassador:
+  enabled: false
+rbac:
+  enabled: true
+  service_account:
+    create: false
+    name: seldon

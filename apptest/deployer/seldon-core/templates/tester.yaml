@@ -1,0 +1,151 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ .Release.Name }}-tester"
+  labels:
+    app.kubernetes.io/name: "{{ .Release.Name }}"
+  annotations:
+    helm.sh/hook: test-success
+spec:
+  serviceAccountName: {{ .Values.rbac.service_account.name }}
+  containers:
+  - name: tester
+    image: "{{ .Values.tester.image }}"
+    env:
+    - name: APIFE_ENABLED
+      valueFrom:
+        configMapKeyRef:
+          name: "{{ .Release.Name }}-test"
+          key: apife.enabled
+    - name: AMBASSADOR_ENABLED
+      valueFrom:
+        configMapKeyRef:
+          name: "{{ .Release.Name }}-test"
+          key: ambassador.enabled
+    volumeMounts:
+    - name: config-volume
+      mountPath: /tester
+    command: ["bash"]
+    args: ["/tester/run.sh"]
+  restartPolicy: Never
+  volumes:
+  - name: config-volume
+    configMap:
+      name: "{{ .Release.Name }}-test"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Name }}-test"
+  labels:
+    app.kubernetes.io/name: "{{ .Release.Name }}"
+  annotations:
+    marketplace.cloud.google.com/verification: test
+data:
+  apife.enabled: "{{ .Values.apife.enabled }}"
+  ambassador.enabled: "{{ .Values.ambassador.enabled }}"  
+  run.sh: |-
+    set -x
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.9.4/bin/linux/amd64/kubectl
+    chmod +x ./kubectl
+    ./kubectl get deployments
+    ./kubectl create -f /tester/model.json
+    STATUS1=$(./kubectl get pods -l seldon-app=test-deployment-seldon-deployment-example -o jsonpath='{.items[0].status.containerStatuses[0].ready}')
+    until [[ "$STATUS1" == "true" ]]; do
+       echo "Status1 is $STATUS1"
+       sleep 1
+       STATUS1=$(./kubectl get pods -l seldon-app=test-deployment-seldon-deployment-example -o jsonpath='{.items[0].status.containerStatuses[0].ready}')
+    done
+    echo "Sleeping a bit more"
+    sleep 5
+    #./kubectl rollout status deploy test-deployment-fx-market-predictor-7cd068f
+    
+    echo "AMBASSADOR_ENABLED=$AMBASSADOR_ENABLED"
+    if [[ "$AMBASSADOR_ENABLED" == "true" ]]; then
+       endpoint="http://{{ .Release.Name }}-ambassador:{{ .Values.service.port }}/seldon/seldon-deployment-example"
+       http_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" ${endpoint}/api/v0.1/predictions -d '{"data":{"names":["a","b"],"tensor":{"shape":[2,2],"values":[0,0,1,1]}}}' -H "Content-Type: application/json")
+       echo "Expected http status code: 200"
+       echo "Actual http status code: $http_status_code"
+       if [[ "$http_status_code" == "200" ]]; then
+         echo SUCCESS
+       else
+         echo FAILURE
+         ./kubectl delete -f /tester/model.json
+         exit 1
+       fi
+    fi
+
+    echo "APIFE_ENABLED=$APIFE_ENABLED"
+    if [[ "$APIFE_ENABLED" == "true" ]]; then
+
+       endpoint="http://{{ .Release.Name }}-seldon-apiserver:{{ .Values.service.port }}"    
+       TOKENJSON=$(curl -XPOST -u oauth-key:oauth-secret ${endpoint}/oauth/token -d 'grant_type=client_credentials')
+       echo "Token JSON is $TOKENJSON"
+       TOKEN=$(echo $TOKENJSON | jq ".access_token" -r)
+       http_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" --header "Authorization: Bearer $TOKEN" ${endpoint}/api/v0.1/predictions -d '{"data":{"names":["a","b"],"tensor":{"shape":[2,2],"values":[0,0,1,1]}}}' -H "Content-Type: application/json")
+       echo "Expected http status code: 200"
+       echo "Actual http status code: $http_status_code"
+       if [[ "$http_status_code" == "200" ]]; then
+         echo SUCCESS
+       else
+         echo FAILURE
+         ./kubectl delete -f /tester/model.json
+         exit 1
+       fi    
+    fi
+
+    ./kubectl delete -f /tester/model.json
+  model.json: |-
+    {
+    "apiVersion": "machinelearning.seldon.io/v1alpha2",
+    "kind": "SeldonDeployment",
+    "metadata": {
+        "labels": {
+        "app": "seldon"
+        },
+        "name": "seldon-deployment-example"
+    },
+    "spec": {
+        "annotations": {
+        "project_name": "FX Market Prediction",
+        "deployment_version": "v1"
+        },
+        "name": "test-deployment",
+        "oauth_key": "oauth-key",
+        "oauth_secret": "oauth-secret",
+        "predictors": [
+        {
+            "componentSpecs": [{
+            "spec": {
+                "containers": [
+                {
+                    "image": "seldonio/mock_classifier:1.0",
+                    "imagePullPolicy": "IfNotPresent",
+                    "name": "classifier",
+                    "resources": {
+                    "requests": {
+                        "memory": "1Mi"
+                    }
+                    }
+                }
+                ],
+                "terminationGracePeriodSeconds": 20
+            }
+            }],
+            "graph": {
+            "children": [],
+            "name": "classifier",
+            "endpoint": {
+                "type" : "REST"
+            },
+            "type": "MODEL"
+            },
+            "name": "fx-market-predictor",
+            "replicas": 1,
+            "annotations": {
+            "predictor_version" : "v1"
+            }
+        }
+        ]
+    }
+    }

@@ -1,0 +1,54 @@
+application_api_version: v1beta1
+properties:
+  name:
+    type: string
+    x-google-marketplace:
+      type: NAME
+  namespace:
+    type: string
+    x-google-marketplace:
+      type: NAMESPACE
+  operatorImage:
+    description: Seldon Operator image
+    type: string
+    default: gcr.io/seldonio/seldon-core:0.3.0
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: image.registry
+            repo: image.repository
+            tag: image.tag
+  engineImage:
+    description: Seldon Service Orchestrator image.
+    type: string
+    default: gcr.io/seldonio/seldon-core/engine:0.3.0
+    x-google-marketplace:
+      type: IMAGE
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: engine.image.registry
+            repo: engine.image.repository
+            tag: engine.image.tag
+  serviceAccount.name:
+    title: Seldon Service Account.
+    description: >-
+      Name of a serviceAccount in the target namespace that
+      has cluster-admin permissions. This is needed for the operator
+      to create Seldon CRD and create namespaced resources.
+    type: string
+    x-google-marketplace:
+      type: SERVICE_ACCOUNT
+      serviceAccount:
+        roles:
+        - type: ClusterRole
+          rulesType: PREDEFINED
+          rulesFromRoleName: cluster-admin
+required:
+- name
+- namespace
+- operatorImage
+- engineImage
+- serviceAccount.name
