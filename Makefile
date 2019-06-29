@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 
 TAG ?= 0.3
-PULL_TAG ?= 0.3.0
+PULL_TAG ?= 0.3.1
 
 APP_NAME=seldon-core
 REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
@@ -10,12 +10,13 @@ REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
 update-chart:
 	rm -rf chart
 	mkdir chart
-	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version 0.3.1-SNAPSHOT seldon-core-operator
+	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version 0.3.1 seldon-core-operator
 	python scripts/update_helm_chart.py
 	cp resources/application.yaml chart/seldon-core-operator/templates
 	cp resources/machinelearning_v1alpha2_seldondeployment.yaml chart/seldon-core-operator/templates
 	rm chart/seldon-core-operator/templates/_hpa-spec-validation.tpl
 	rm chart/seldon-core-operator/templates/_pod-spec-validation.tpl
+	rm chart/seldon-core-operator/templates/_object-meta-validation.tpl
 	rm chart/seldon-core-operator/templates/seldon-deployment-crd.json
 
 
@@ -23,7 +24,7 @@ install-application-crd:
 	kubectl apply -f "https://raw.githubusercontent.com/GoogleCloudPlatform/marketplace-k8s-app-tools/master/crd/app-crd.yaml"
 
 deploy:
-	export MARKETPLACE_TOOLS_TAG=0.8.0-alpha04 && mpdev /scripts/install \
+	export MARKETPLACE_TOOLS_TAG=0.8.0 && mpdev /scripts/install \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
 		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "gcr.io/seldon-demos/seldonio/seldon-core:0.3", "engineImage":"gcr.io/seldon-demos/seldonio/seldon-core/engine:0.3"}'
 
@@ -35,7 +36,7 @@ undeploy:
 	kubectl delete secret seldon-operator-webhook-server-secret -n test-ns --ignore-not-found=true
 
 verify:
-	export MARKETPLACE_TOOLS_TAG=0.8.0-alpha04 && mpdev /scripts/verify \
+	export MARKETPLACE_TOOLS_TAG=0.8.0 && mpdev /scripts/verify \
 		--additional_deployer_role=cluster-admin \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
 		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "gcr.io/seldon-demos/seldonio/seldon-core:0.3", "engineImage":"gcr.io/seldon-demos/seldonio/seldon-core/engine:0.3"}'
