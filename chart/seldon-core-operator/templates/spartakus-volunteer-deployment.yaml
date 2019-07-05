@@ -12,22 +12,11 @@ spec:
         app: seldon-spartakus-volunteer
     spec:
       containers:
-      - args:
-        - volunteer
-        - --cluster-id=$(SPARTAKUS_VOLUNTEER_CLUSTERID)
-        - --database=$(SPARTAKUS_VOLUNTEER_DATABASE)
-        - --extensions=/etc/config/spartakus.volunteer.extensions
+      - args: 
+        - -c
+        - /spartakus volunteer --cluster-id={{ .Values.usageMetrics.clusterid  | default "$(cat /proc/sys/kernel/random/uuid)" }} --database={{ .Values.usageMetrics.database }} --extensions=/etc/config/spartakus_volunteer_extensions
+        command: ["/bin/sh"]        
         env:
-        - name: SPARTAKUS_VOLUNTEER_CLUSTERID
-          valueFrom:
-            configMapKeyRef:
-              key: spartakus.volunteer.clusterid
-              name: seldon-spartakus-config
-        - name: SPARTAKUS_VOLUNTEER_DATABASE
-          valueFrom:
-            configMapKeyRef:
-              key: spartakus.volunteer.database
-              name: seldon-spartakus-config
         image: gcr.io/google_containers/spartakus-amd64:v1.1.0
         name: seldon-spartakus-volunteer
         volumeMounts:

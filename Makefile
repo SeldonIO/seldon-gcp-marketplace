@@ -10,14 +10,10 @@ REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
 update-chart:
 	rm -rf chart
 	mkdir chart
-	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version 0.3.1 seldon-core-operator
+	#helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version 0.3.1 seldon-core-operator
+	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version 0.3.2-SNAPSHOT seldon-core-operator
 	python scripts/update_helm_chart.py
 	cp resources/application.yaml chart/seldon-core-operator/templates
-	cp resources/machinelearning_v1alpha2_seldondeployment.yaml chart/seldon-core-operator/templates
-	rm chart/seldon-core-operator/templates/_hpa-spec-validation.tpl
-	rm chart/seldon-core-operator/templates/_pod-spec-validation.tpl
-	rm chart/seldon-core-operator/templates/_object-meta-validation.tpl
-	rm chart/seldon-core-operator/templates/seldon-deployment-crd.json
 
 
 install-application-crd:
