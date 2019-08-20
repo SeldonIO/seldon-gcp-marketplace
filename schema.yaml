@@ -11,7 +11,7 @@ properties:
   operatorImage:
     description: Seldon Operator image
     type: string
-    default: gcr.io/seldonio/seldon-core:0.3
+    default: gcr.io/seldonio/seldon-core:0.4
     x-google-marketplace:
       type: IMAGE
       image:
@@ -23,7 +23,7 @@ properties:
   engineImage:
     description: Seldon Service Orchestrator image.
     type: string
-    default: gcr.io/seldonio/seldon-core/engine:0.3
+    default: gcr.io/seldonio/seldon-core/engine:0.4
     x-google-marketplace:
       type: IMAGE
       image:
@@ -46,6 +46,13 @@ properties:
         - type: ClusterRole
           rulesType: PREDEFINED
           rulesFromRoleName: cluster-admin
+  istio.enabled:
+    type: boolean
+    title: Enable Istio Integration
+    description: Enable automatic creation of virtual services and destination routes. You must be running in a cluster with istio installed.
+    default: false
+    x-google-marketplace:
+      type: ISTIO_ENABLED
 required:
 - name
 - namespace

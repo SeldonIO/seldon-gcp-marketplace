@@ -18,7 +18,10 @@ update-chart:
 install-application-crd:
 	kubectl apply -f "https://raw.githubusercontent.com/GoogleCloudPlatform/marketplace-k8s-app-tools/master/crd/app-crd.yaml"
 
-deploy:
+create-test-ns:
+	kubectl create ns test-ns || echo "namespace test-ns exists"
+
+deploy: create-test-ns
 	export MARKETPLACE_TOOLS_TAG=0.8.0 && mpdev /scripts/install \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
 		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "gcr.io/seldon-demos/seldonio/seldon-core:0.4", "engineImage":"gcr.io/seldon-demos/seldonio/seldon-core/engine:0.4"}'
