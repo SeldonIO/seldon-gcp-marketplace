@@ -1,0 +1,137 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: seldon
+    app.kubernetes.io/instance: '{{ .Release.Name }}'
+    app.kubernetes.io/name: '{{ include "seldon.name" . }}'
+    app.kubernetes.io/version: '{{ .Chart.Version }}'
+    control-plane: seldon-controller-manager
+  name: seldon-controller-manager
+  namespace: '{{ .Release.Namespace }}'
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: seldon
+      app.kubernetes.io/instance: seldon1
+      app.kubernetes.io/name: seldon
+      app.kubernetes.io/version: v0.5
+      control-plane: seldon-controller-manager
+  template:
+    metadata:
+      annotations:
+        prometheus.io/scrape: 'true'
+        sidecar.istio.io/inject: 'false'
+      labels:
+        app: seldon
+        app.kubernetes.io/instance: seldon1
+        app.kubernetes.io/name: seldon
+        app.kubernetes.io/version: v0.5
+        control-plane: seldon-controller-manager
+    spec:
+      containers:
+      - args:
+        - --enable-leader-election
+        - --webhook-port={{ .Values.webhook.port }}
+        - --create-resources=$(CREATE_RESOURCES)
+        - '{{- if .Values.singleNamespace }}--namespace={{ .Release.Namespace }}{{- end }}'
+        command:
+        - /manager
+        env:
+        - name: WATCH_NAMESPACE
+          value: ''
+        - name: RELATED_IMAGE_EXECUTOR
+          value: ''
+        - name: RELATED_IMAGE_ENGINE
+          value: ''
+        - name: CREATE_RESOURCES
+          value: '{{ .Values.createResources }}'
+        - name: POD_NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+        - name: CONTROLLER_ID
+          value: '{{ .Values.controllerId }}'
+        - name: AMBASSADOR_ENABLED
+          value: '{{ .Values.ambassador.enabled }}'
+        - name: AMBASSADOR_SINGLE_NAMESPACE
+          value: '{{ .Values.ambassador.singleNamespace }}'
+        - name: ENGINE_CONTAINER_IMAGE_AND_VERSION
+          value: '{{ .Values.engine.image.registry }}/{{ .Values.engine.image.repository }}:{{ .Values.engine.image.tag }}'
+        - name: ENGINE_CONTAINER_IMAGE_PULL_POLICY
+          value: '{{ .Values.engine.image.pullPolicy }}'
+        - name: ENGINE_CONTAINER_SERVICE_ACCOUNT_NAME
+          value: '{{ .Values.engine.serviceAccount.name }}'
+        - name: ENGINE_CONTAINER_USER
+          value: '{{ .Values.engine.user }}'
+        - name: ENGINE_LOG_MESSAGES_EXTERNALLY
+          value: '{{ .Values.engine.logMessagesExternally }}'
+        - name: PREDICTIVE_UNIT_SERVICE_PORT
+          value: '{{ .Values.predictiveUnit.port }}'
+        - name: PREDICTIVE_UNIT_DEFAULT_ENV_SECRET_REF_NAME
+          value: '{{ .Values.predictiveUnit.defaultEnvSecretRefName }}'
+        - name: ENGINE_SERVER_GRPC_PORT
+          value: '{{ .Values.engine.grpc.port }}'
+        - name: ENGINE_SERVER_PORT
+          value: '{{ .Values.engine.port }}'
+        - name: ENGINE_PROMETHEUS_PATH
+          value: '{{ .Values.engine.prometheus.path }}'
+        - name: ISTIO_ENABLED
+          value: '{{ .Values.istio.enabled }}'
+        - name: ISTIO_GATEWAY
+          value: '{{ .Values.istio.gateway }}'
+        - name: ISTIO_TLS_MODE
+          value: '{{ .Values.istio.tlsMode }}'
+        - name: USE_EXECUTOR
+          value: '{{ .Values.executor.enabled }}'
+        - name: EXECUTOR_CONTAINER_IMAGE_AND_VERSION
+          value: '{{ .Values.executor.image.registry }}/{{ .Values.executor.image.repository }}:{{ .Values.executor.image.tag }}'
+        - name: EXECUTOR_CONTAINER_IMAGE_PULL_POLICY
+          value: '{{ .Values.executor.image.pullPolicy }}'
+        - name: EXECUTOR_PROMETHEUS_PATH
+          value: '{{ .Values.executor.prometheus.path }}'
+        - name: EXECUTOR_SERVER_GRPC_PORT
+          value: '{{ .Values.engine.grpc.port }}'
+        - name: EXECUTOR_SERVER_PORT
+          value: '{{ .Values.executor.port }}'
+        - name: EXECUTOR_CONTAINER_USER
+          value: '{{ .Values.executor.user }}'
+        - name: EXECUTOR_CONTAINER_SERVICE_ACCOUNT_NAME
+          value: '{{ .Values.executor.serviceAccount.name }}'
+        - name: EXECUTOR_REQUEST_LOGGER_DEFAULT_ENDPOINT_PREFIX
+          value: '{{ .Values.executor.defaultRequestLoggerEndpointPrefix }}'
+        - name: DEFAULT_USER_ID
+          value: '{{ .Values.defaultUserID }}'
+        image: '{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}'
+        imagePullPolicy: '{{ .Values.image.pullPolicy }}'
+        name: manager
+        ports:
+        - containerPort: {{ .Values.webhook.port }}
+          name: webhook-server
+          protocol: TCP
+        - containerPort: 8080
+          name: metrics
+          protocol: TCP
+        resources:
+          limits:
+            cpu: '{{ .Values.manager.cpuLimit }}'
+            memory: '{{ .Values.manager.memoryLimit }}'
+          requests:
+            cpu: '{{ .Values.manager.cpuRequest }}'
+            memory: '{{ .Values.manager.memoryRequest }}'
+{{- if not .Values.createResources }}
+        volumeMounts:
+        - mountPath: /tmp/k8s-webhook-server/serving-certs
+          name: cert
+          readOnly: true
+{{- end }}
+      serviceAccountName: seldon-manager
+      terminationGracePeriodSeconds: 10
+{{- if not .Values.createResources }}
+      volumes:
+      - name: cert
+        secret:
+          defaultMode: 420
+          secretName: seldon-webhook-server-cert
+{{- end }}
