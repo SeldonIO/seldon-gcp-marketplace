@@ -1,7 +1,7 @@
 SHELL=/bin/bash
 
-TAG ?= 0.4
-PULL_TAG ?= 0.4.0
+TAG ?= 1.2
+PULL_TAG ?= 1.2.1-dev
 
 APP_NAME=seldon-core
 REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
@@ -10,10 +10,20 @@ REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
 update-chart:
 	rm -rf chart
 	mkdir chart
-	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version 0.4.0 seldon-core-operator
+	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version ${PULL_TAG} seldon-core-operator --devel
+	rmdir chart/seldon-core-operator-${PULL_TAG}.tgz/
 	python scripts/update_helm_chart.py
+	helm template chart/seldon-core-operator --set rbac.create=true > template.yaml && python scripts/update_schema.py && rm template.yaml
 	cp resources/application.yaml chart/seldon-core-operator/templates
 
+check:
+	mpdev /scripts/doctor
+
+#test-install:
+#	kubectl create namespace test-ns
+#	mpdev /scripts/install \
+#		--deployer=$REGISTRY/$APP_NAME/deployer \
+#		--parameters='{"name": "test-deployment", "namespace": "test-ns"}'
 
 install-application-crd:
 	kubectl apply -f "https://raw.githubusercontent.com/GoogleCloudPlatform/marketplace-k8s-app-tools/master/crd/app-crd.yaml"
@@ -21,10 +31,15 @@ install-application-crd:
 create-test-ns:
 	kubectl create ns test-ns || echo "namespace test-ns exists"
 
-deploy: create-test-ns
+deploy_prev: create-test-ns
 	export MARKETPLACE_TOOLS_TAG=0.8.0 && mpdev /scripts/install \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
 		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "gcr.io/seldon-demos/seldonio/seldon-core:0.4", "engineImage":"gcr.io/seldon-demos/seldonio/seldon-core/engine:0.4"}'
+
+deploy: create-test-ns
+	mpdev /scripts/install \
+		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
+		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(TAG)'"}'
 
 # There is no automated undeploy available after a deploy.
 undeploy:
@@ -64,8 +79,15 @@ build_engine:
 push_engine:
 	docker push "$(REGISTRY)/seldonio/${APP_NAME}/engine:$(TAG)"
 
-build_all: build_deployer build_operator build_engine
-push_all: push_deployer push_operator push_engine
+build_executor:
+	docker pull seldonio/seldon-core-executor:$(PULL_TAG)
+	docker tag seldonio/seldon-core-executor:$(PULL_TAG) "$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(TAG)"
+
+push_executor:
+	docker push "$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(TAG)"
+
+build_all: build_deployer build_operator build_engine build_executor
+push_all: push_deployer push_operator push_engine push_executor
 
 test: update-chart build_all push_all verify
 
