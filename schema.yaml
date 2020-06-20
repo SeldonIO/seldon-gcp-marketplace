@@ -1,5 +1,37 @@
 application_api_version: v1beta1
 properties:
+  engineImage:
+    default: gcr.io/seldon-core-public/seldonio/seldon-core/engine:1.2
+    description: Seldon Service Deprecated Orchestrator image.
+    type: string
+    x-google-marketplace:
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: engine.image.registry
+            repo: engine.image.repository
+            tag: engine.image.tag
+      type: IMAGE
+  executorImage:
+    default: gcr.io/seldon-core-public/seldonio/seldon-core/seldon-core-executor:1.2
+    description: Seldon Service Orchestrator image.
+    type: string
+    x-google-marketplace:
+      image:
+        generatedProperties:
+          splitToRegistryRepoTag:
+            registry: executor.image.registry
+            repo: executor.image.repository
+            tag: executor.image.tag
+      type: IMAGE
+  istio.enabled:
+    default: false
+    description: Enable automatic creation of virtual services and destination routes.
+      You must be running in a cluster with istio installed.
+    title: Enable Istio Integration
+    type: boolean
+    x-google-marketplace:
+      type: ISTIO_ENABLED
   name:
     type: string
     x-google-marketplace:
@@ -9,50 +41,280 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
   operatorImage:
+    default: gcr.io/seldon-core-public/seldonio/seldon-core:1.2
     description: Seldon Operator image
     type: string
-    default: gcr.io/seldonio/seldon-core:0.4
     x-google-marketplace:
-      type: IMAGE
       image:
         generatedProperties:
           splitToRegistryRepoTag:
             registry: image.registry
             repo: image.repository
             tag: image.tag
-  engineImage:
-    description: Seldon Service Orchestrator image.
-    type: string
-    default: gcr.io/seldonio/seldon-core/engine:0.4
-    x-google-marketplace:
       type: IMAGE
-      image:
-        generatedProperties:
-          splitToRegistryRepoTag:
-            registry: engine.image.registry
-            repo: engine.image.repository
-            tag: engine.image.tag
   serviceAccount.name:
+    description: Name of a serviceAccount in the target namespace that has cluster-admin
+      permissions. This is needed for the operator to create Seldon CRD and create
+      namespaced resources.
     title: Seldon Service Account.
-    description: >-
-      Name of a serviceAccount in the target namespace that
-      has cluster-admin permissions. This is needed for the operator
-      to create Seldon CRD and create namespaced resources.
     type: string
     x-google-marketplace:
-      type: SERVICE_ACCOUNT
       serviceAccount:
         roles:
-        - type: ClusterRole
-          rulesType: PREDEFINED
-          rulesFromRoleName: cluster-admin
-  istio.enabled:
-    type: boolean
-    title: Enable Istio Integration
-    description: Enable automatic creation of virtual services and destination routes. You must be running in a cluster with istio installed.
-    default: false
-    x-google-marketplace:
-      type: ISTIO_ENABLED
+        - rules:
+          - apiGroups:
+            - ''
+            resources:
+            - configmaps
+            verbs:
+            - get
+            - list
+            - watch
+            - create
+            - update
+            - patch
+            - delete
+          - apiGroups:
+            - ''
+            resources:
+            - configmaps/status
+            verbs:
+            - get
+            - update
+            - patch
+          - apiGroups:
+            - ''
+            resources:
+            - events
+            verbs:
+            - create
+          rulesType: CUSTOM
+          type: Role
+        - rules:
+          - apiGroups:
+            - ''
+            resources:
+            - events
+            verbs:
+            - create
+            - patch
+          - apiGroups:
+            - ''
+            resources:
+            - namespaces
+            verbs:
+            - get
+            - list
+            - watch
+          - apiGroups:
+            - ''
+            resources:
+            - services
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - apps
+            resources:
+            - deployments
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - apps
+            resources:
+            - deployments/status
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - autoscaling
+            resources:
+            - horizontalpodautoscalers
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - autoscaling
+            resources:
+            - horizontalpodautoscalers/status
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - machinelearning.seldon.io
+            resources:
+            - seldondeployments
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - machinelearning.seldon.io
+            resources:
+            - seldondeployments/finalizers
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - machinelearning.seldon.io
+            resources:
+            - seldondeployments/status
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - networking.istio.io
+            resources:
+            - destinationrules
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - networking.istio.io
+            resources:
+            - destinationrules/status
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - networking.istio.io
+            resources:
+            - virtualservices
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - networking.istio.io
+            resources:
+            - virtualservices/status
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - v1
+            resources:
+            - namespaces
+            verbs:
+            - get
+            - list
+            - watch
+          - apiGroups:
+            - v1
+            resources:
+            - services
+            verbs:
+            - create
+            - delete
+            - get
+            - list
+            - patch
+            - update
+            - watch
+          - apiGroups:
+            - v1
+            resources:
+            - services/status
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - ''
+            resources:
+            - secrets
+            verbs:
+            - get
+            - list
+            - watch
+          - apiGroups:
+            - ''
+            resources:
+            - configmaps
+            verbs:
+            - get
+            - list
+            - watch
+          - apiGroups:
+            - ''
+            resources:
+            - serviceaccounts
+            verbs:
+            - get
+            - list
+            - watch
+          - apiGroups:
+            - admissionregistration.k8s.io
+            resources:
+            - mutatingwebhookconfigurations
+            - validatingwebhookconfigurations
+            verbs:
+            - get
+            - list
+            - create
+            - update
+          - apiGroups:
+            - apps
+            resources:
+            - deployments/finalizers
+            verbs:
+            - get
+            - patch
+            - update
+          - apiGroups:
+            - apiextensions.k8s.io
+            resources:
+            - customresourcedefinitions
+            verbs:
+            - create
+            - get
+            - list
+          - apiGroups:
+            - apiextensions.k8s.io
+            resources:
+            - customresourcedefinitions/finalizers
+            verbs:
+            - get
+            - patch
+            - update
+          rulesType: CUSTOM
+          type: ClusterRole
+      type: SERVICE_ACCOUNT
 required:
 - name
 - namespace
