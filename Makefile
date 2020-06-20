@@ -31,11 +31,6 @@ install-application-crd:
 create-test-ns:
 	kubectl create ns test-ns || echo "namespace test-ns exists"
 
-deploy_prev: create-test-ns
-	export MARKETPLACE_TOOLS_TAG=0.8.0 && mpdev /scripts/install \
-		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
-		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "gcr.io/seldon-demos/seldonio/seldon-core:0.4", "engineImage":"gcr.io/seldon-demos/seldonio/seldon-core/engine:0.4"}'
-
 deploy: create-test-ns
 	mpdev /scripts/install \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
@@ -49,10 +44,9 @@ undeploy:
 	kubectl delete secret seldon-operator-webhook-server-secret -n test-ns --ignore-not-found=true
 
 verify:
-	export MARKETPLACE_TOOLS_TAG=0.8.0 && mpdev /scripts/verify \
-		--additional_deployer_role=cluster-admin \
+	mpdev /scripts/verify \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
-		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "gcr.io/seldon-demos/seldonio/seldon-core:0.4", "engineImage":"gcr.io/seldon-demos/seldonio/seldon-core/engine:0.4"}'
+		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(TAG)'"}'
 
 
 #
@@ -60,7 +54,10 @@ verify:
 #
 
 build_deployer:
-	docker build --tag ${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} .
+	docker build \
+	--build-arg REGISTRY="$(REGISTRY)/seldonio" \
+	--build-arg TAG="$(TAG)" \
+	--tag ${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} .
 
 push_deployer:
 	docker push ${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG}
@@ -86,8 +83,15 @@ build_executor:
 push_executor:
 	docker push "$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(TAG)"
 
-build_all: build_deployer build_operator build_engine build_executor
-push_all: push_deployer push_operator push_engine push_executor
+build_tester:
+	docker pull cfmanteiga/alpine-bash-curl-jq
+	docker tag cfmanteiga/alpine-bash-curl-jq "$(REGISTRY)/seldonio/tester:$(TAG)"
+
+push_tester:
+	docker push "$(REGISTRY)/seldonio/tester:$(TAG)"
+
+build_all: build_deployer build_operator build_engine build_executor build_tester
+push_all: push_deployer push_operator push_engine push_executor push_tester
 
 test: update-chart build_all push_all verify
 

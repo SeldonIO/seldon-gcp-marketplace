@@ -1,0 +1,11 @@
+apiVersion: v1
+name: seldon-tester
+description: Chart to test seldon-core
+version: 0.1.0
+home: https://github.com/SeldonIO/seldon-core
+sources:
+  - https://github.com/SeldonIO/seldon-core
+  - https://github.com/SeldonIO/seldon-core/tree/master/helm-charts/seldon-single-model
+keywords:
+  - kubernetes
+  - machine-learning
