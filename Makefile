@@ -1,7 +1,8 @@
 SHELL=/bin/bash
 
 TAG ?= 1.2
-PULL_TAG ?= 1.2.1-dev
+CHART_VERSION ?= 1.2.1-dev
+PULL_TAG ?= 1.2.0
 
 APP_NAME=seldon-core
 REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
@@ -10,8 +11,8 @@ REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
 update-chart:
 	rm -rf chart
 	mkdir chart
-	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version ${PULL_TAG} seldon-core-operator --devel
-	rmdir chart/seldon-core-operator-${PULL_TAG}.tgz/
+	helm fetch --untar --destination chart --repo https://storage.googleapis.com/seldon-charts --version ${CHART_VERSION} seldon-core-operator --devel
+	rmdir chart/seldon-core-operator-${CHART_VERSION}.tgz/
 	python scripts/update_helm_chart.py
 	helm template chart/seldon-core-operator --set rbac.create=true > template.yaml && python scripts/update_schema.py && rm template.yaml
 	cp resources/application.yaml chart/seldon-core-operator/templates

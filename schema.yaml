@@ -1,7 +1,7 @@
 application_api_version: v1beta1
 properties:
   engineImage:
-    default: gcr.io/seldonio/seldon-core/engine:1.1.0
+    default: gcr.io/seldon-core-public/seldonio/seldon-core/engine:1.2
     description: Seldon Service Deprecated Orchestrator image.
     type: string
     x-google-marketplace:
@@ -13,7 +13,7 @@ properties:
             tag: engine.image.tag
       type: IMAGE
   executorImage:
-    default: gcr.io/seldonio/seldon-core/seldon-core-executor:1.1.0
+    default: gcr.io/seldon-core-public/seldonio/seldon-core/seldon-core-executor:1.2
     description: Seldon Service Orchestrator image.
     type: string
     x-google-marketplace:
@@ -41,7 +41,7 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
   operatorImage:
-    default: gcr.io/seldonio/seldon-core:1.1.0
+    default: gcr.io/seldon-core-public/seldonio/seldon-core:1.2
     description: Seldon Operator image
     type: string
     x-google-marketplace:
