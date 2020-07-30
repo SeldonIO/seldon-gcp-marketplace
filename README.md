@@ -15,7 +15,7 @@ To update the market place for a new release of Seldon Core.
 Update the Makefile to fetch the latest helm chart by changing the CHART_VERSION
 
 ```
-CHART_VERSION ?= 1.2.1-dev
+CHART_VERSION ?= 1.2.1
 ```
 
 Run
@@ -55,6 +55,12 @@ Run
 
 ```
 make build_all push_all
+```
+
+Intsall application CRD
+
+```
+make install-application-crd
 ```
 
 To test the deployer succeeds run
