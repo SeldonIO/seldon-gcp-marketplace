@@ -59,7 +59,11 @@ properties:
     title: Seldon Service Account.
     type: string
     x-google-marketplace:
+      type: SERVICE_ACCOUNT
       serviceAccount:
+        description: >-
+          Allows the Seldon operator to create Deployments and Services as needed based on defined Seldon Deployments.
+          Also allows the Seldon operator to bootstrap web hooks, manage its configmap and update events.
         roles:
         - rules:
           - apiGroups:
@@ -315,7 +319,6 @@ properties:
             - update
           rulesType: CUSTOM
           type: ClusterRole
-      type: SERVICE_ACCOUNT
 required:
 - name
 - namespace

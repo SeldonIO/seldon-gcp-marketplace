@@ -43,7 +43,7 @@ data:
     ./kubectl create -f /tester/model.yaml
     sleep 5
     ./kubectl rollout status deploy.apps/$(./kubectl get deploy.apps -l seldon-deployment-id=rest-seldon -o jsonpath='{.items[0].metadata.name}')
-    sleep 3
+    sleep 20
     http_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" http://rest-seldon-model.${NAMESPACE}:8000/api/v1.0/predictions -d '{"data": {"ndarray":[[1.0, 2.0, 5.0]]}}' -H "Content-Type: application/json")
     echo "Expected http status code: 200"
     echo "Actual http status code: $http_status_code"

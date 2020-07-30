@@ -32,7 +32,7 @@ This will
      1. Manager must create resources including CRD
  1. Create a template from the chart with rbac set to true
  1. Try to extract the Role and ClusterRole from the template and update the schema.yaml to ensure the deployed app gets the correct RBAC. Google does not allow a helm chart to create RBAC itself. This is done via `/scripts/update_schema.py`
- 1. Cp the application.yaml into the chart.
+ 1. cp the application.yaml into the chart.
 
 Some issue that might happen:
 
@@ -43,7 +43,8 @@ Some issue that might happen:
 Next build all the images. For this you will need:
 
  * A kubernetes cluster connected with kubectl access
- * An active GCP project
+ * An active GCP project, e.g.
+   * `gcloud config configurations activate seldon-demos`
 
 
 Change the PULL_TAG and TAG setttings for the new release:
@@ -57,7 +58,7 @@ Run
 make build_all push_all
 ```
 
-Intsall application CRD
+Install application CRD
 
 ```
 make install-application-crd
