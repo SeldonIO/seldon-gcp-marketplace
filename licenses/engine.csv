@@ -1,0 +1,138 @@
+com.google.protobuf:protobufjava:3.11.3,https://developers.google.com/protocolbuffers/protobufjava/,3-Clause BSD License ,,YES
+com.google.protobuf:protobufjavautil:3.11.3,https://developers.google.com/protocolbuffers/protobufjavautil/,3-Clause BSD License ,,YES
+com.google.android:annotations:4.1.1.4,http://source.android.com/,Apache 2.0 ,,YES
+com.google.code.gson:gson:2.8.6,https://github.com/google/gson/gson,Apache 2.0 ,,YES
+com.google.errorprone:error_prone_annotations:2.3.3,http://nexus.sonatype.org/ossrepositoryhosting.html/error_prone_parent/error_prone_annotations,Apache 2.0 ,,YES
+io.grpc:grpcapi:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.grpc:grpccontext:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.grpc:grpccore:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.grpc:grpcnetty:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.grpc:grpcprotobuf:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.grpc:grpcprotobuflite:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.grpc:grpcstub:1.25.0,https://github.com/grpc/grpcjava,Apache 2.0 ,,YES
+io.perfmark:perfmarkapi:0.19.0,https://github.com/perfmark/perfmark,Apache 2.0 ,,YES
+com.vaadin.external.google:androidjson:0.0.20131108.vaadin1,http://developer.android.com/sdk,Apache License 2.0 ,,YES
+jakarta.validation:jakarta.validationapi:2.0.1,http://beanvalidation.org,Apache License 2.0 ,,YES
+org.hibernate.validator:hibernatevalidator:6.0.17.Final,http://hibernate.org/validator/hibernatevalidator,Apache License 2.0 ,,YES
+com.google.guava:guava:29.0jre,https://github.com/google/guava/guava,Apache License Version 2.0 ,,YES
+commonscodec:commonscodec:1.13,https://commons.apache.org/proper/commonscodec/,Apache License Version 2.0 ,,YES
+io.netty:nettybuffer:4.1.42.Final,https://netty.io/nettybuffer/,Apache License Version 2.0 ,,YES
+io.netty:nettycodec:4.1.42.Final,https://netty.io/nettycodec/,Apache License Version 2.0 ,,YES
+io.netty:nettycodechttp:4.1.42.Final,https://netty.io/nettycodechttp/,Apache License Version 2.0 ,,YES
+io.netty:nettycodechttp2:4.1.42.Final,https://netty.io/nettycodechttp2/,Apache License Version 2.0 ,,YES
+io.netty:nettycodecsocks:4.1.42.Final,https://netty.io/nettycodecsocks/,Apache License Version 2.0 ,,YES
+io.netty:nettycommon:4.1.42.Final,https://netty.io/nettycommon/,Apache License Version 2.0 ,,YES
+io.netty:nettyhandler:4.1.42.Final,https://netty.io/nettyhandler/,Apache License Version 2.0 ,,YES
+io.netty:nettyhandlerproxy:4.1.42.Final,https://netty.io/nettyhandlerproxy/,Apache License Version 2.0 ,,YES
+io.netty:nettyresolver:4.1.42.Final,https://netty.io/nettyresolver/,Apache License Version 2.0 ,,YES
+io.netty:nettytransport:4.1.42.Final,https://netty.io/nettytransport/,Apache License Version 2.0 ,,YES
+io.opentracing.contrib:opentracingtracerresolver:0.1.8,https://github.com/opentracingcontrib/javatracerresolver/opentracingtracerresolver,Apache License Version 2.0 ,,YES
+net.bytebuddy:bytebuddy:1.10.1,https://bytebuddy.net/bytebuddy,Apache License Version 2.0 ,,YES
+net.bytebuddy:bytebuddyagent:1.10.1,https://bytebuddy.net/bytebuddyagent,Apache License Version 2.0 ,,YES
+org.apache.commons:commonslang3:3.11,https://commons.apache.org/proper/commonslang/,Apache License Version 2.0 ,,YES
+org.apache.httpcomponents:httpclient:4.5.10,http://hc.apache.org/httpcomponentsclient,Apache License Version 2.0 ,,YES
+org.apache.httpcomponents:httpcore:4.4.12,http://hc.apache.org/httpcomponentscorega,Apache License Version 2.0 ,,YES
+org.apache.logging.log4j:log4japi:2.12.1,https://logging.apache.org/log4j/2.x/log4japi/,Apache License Version 2.0 ,,YES
+org.apache.logging.log4j:log4jcore:2.12.1,https://logging.apache.org/log4j/2.x/log4jcore/,Apache License Version 2.0 ,,YES
+org.apache.logging.log4j:log4jjul:2.12.1,https://logging.apache.org/log4j/2.x/log4jjul/,Apache License Version 2.0 ,,YES
+org.apache.logging.log4j:log4jslf4jimpl:2.12.1,https://logging.apache.org/log4j/2.x/log4jslf4jimpl/,Apache License Version 2.0 ,,YES
+org.apache.tomcat.embed:tomcatembedcore:9.0.27,https://tomcat.apache.org/,Apache License Version 2.0 ,,YES
+org.apache.tomcat.embed:tomcatembedel:9.0.27,https://tomcat.apache.org/,Apache License Version 2.0 ,,YES
+org.apache.tomcat.embed:tomcatembedwebsocket:9.0.27,https://tomcat.apache.org/,Apache License Version 2.0 ,,YES
+org.assertj:assertjcore:3.13.2,http://assertj.org/assertjcore,Apache License Version 2.0 ,,YES
+org.springframework:springaop:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springbeans:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springcontext:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springcore:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springexpression:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springjcl:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springtest:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springweb:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework:springwebmvc:5.2.0.RELEASE,https://github.com/springprojects/springframework,Apache License Version 2.0 ,,YES
+org.springframework.boot:springboot:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springboot,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootactuator:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootactuator,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootactuatorautoconfigure:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootactuatorautoconfigure,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootautoconfigure:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootautoconfigure,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstarter:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstarter,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstarteractuator:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstarteractuator,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstarterjson:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstarterjson,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstarterlog4j2:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstarterlog4j2,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstartertest:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstartertest,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstartertomcat:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstartertomcat,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstartervalidation:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstartervalidation,Apache License Version 2.0 ,,YES
+org.springframework.boot:springbootstarterweb:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springbootstarters/springbootstarterweb,Apache License Version 2.0 ,,YES
+org.springframework.boot:springboottest:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springboottest,Apache License Version 2.0 ,,YES
+org.springframework.boot:springboottestautoconfigure:2.2.0.RELEASE,https://projects.spring.io/springboot/#/springbootparent/springboottestautoconfigure,Apache License Version 2.0 ,,YES
+org.yaml:snakeyaml:1.25,http://www.snakeyaml.org,Apache License Version 2.0 ,,YES
+com.fasterxml:classmate:1.5.0,http://github.com/FasterXML/javaclassmate,Apache Software License Version 2.0 ,,YES
+com.fasterxml.jackson.core:jacksonannotations:2.11.1,http://github.com/FasterXML/jackson,Apache Software License Version 2.0 ,,YES
+com.fasterxml.jackson.core:jacksoncore:2.11.1,https://github.com/FasterXML/jacksoncore,Apache Software License Version 2.0 ,,YES
+com.fasterxml.jackson.core:jacksondatabind:2.11.1,http://github.com/FasterXML/jackson,Apache Software License Version 2.0 ,,YES
+com.fasterxml.jackson.datatype:jacksondatatypejdk8:2.11.1,https://github.com/FasterXML/jacksonmodulesjava8/jacksondatatypejdk8,Apache Software License Version 2.0 ,,YES
+com.fasterxml.jackson.datatype:jacksondatatypejsr310:2.11.1,https://github.com/FasterXML/jacksonmodulesjava8/jacksondatatypejsr310,Apache Software License Version 2.0 ,,YES
+com.fasterxml.jackson.module:jacksonmoduleparameternames:2.11.1,https://github.com/FasterXML/jacksonmodulesjava8/jacksonmoduleparameternames,Apache Software License Version 2.0 ,,YES
+com.google.api.grpc:protogooglecommonprotos:1.16.0,https://github.com/googleapis/commonprotosjava,Apache Software License Version 2.0 ,,YES
+com.google.code.findbugs:jsr305:3.0.2,http://findbugs.sourceforge.net/,Apache Software License Version 2.0 ,,YES
+com.google.guava:failureaccess:1.0.1,https://github.com/google/guava/failureaccess,Apache Software License Version 2.0 ,,YES
+com.google.guava:listenablefuture:9999.0emptytoavoidconflictwithguava,https://github.com/google/guava/listenablefuture,Apache Software License Version 2.0 ,,YES
+com.google.j2objc:j2objcannotations:1.3,https://github.com/google/j2objc/,Apache Software License Version 2.0 ,,YES
+com.jayway.jsonpath:jsonpath:2.4.0,https://github.com/jayway/JsonPath,Apache Software License Version 2.0 ,,YES
+com.squareup.okhttp3:okhttp:4.8.0,https://square.github.io/okhttp/,Apache Software License Version 2.0 ,,YES
+com.squareup.okio:okio:2.7.0,https://github.com/square/okio/,Apache Software License Version 2.0 ,,YES
+io.kubernetes:clientjavaproto:7.0.0,https://github.com/kubernetesclient/java,Apache Software License Version 2.0 ,,YES
+io.micrometer:micrometercore:1.5.2,https://github.com/micrometermetrics/micrometer,Apache Software License Version 2.0 ,,YES
+io.micrometer:micrometerregistryprometheus:1.5.2,https://github.com/micrometermetrics/micrometer,Apache Software License Version 2.0 ,,YES
+io.opentracing:opentracingapi:0.33.0,https://github.com/opentracing/opentracingjava/opentracingapi,Apache Software License Version 2.0 ,,YES
+io.opentracing:opentracingmock:0.33.0,https://github.com/opentracing/opentracingjava/opentracingmock,Apache Software License Version 2.0 ,,YES
+io.opentracing:opentracingnoop:0.33.0,https://github.com/opentracing/opentracingjava/opentracingnoop,Apache Software License Version 2.0 ,,YES
+io.opentracing:opentracingutil:0.33.0,https://github.com/opentracing/opentracingjava/opentracingutil,Apache Software License Version 2.0 ,,YES
+io.opentracing.contrib:opentracinggrpc:0.2.0,https://github.com/opentracingcontrib/javagrpc,Apache Software License Version 2.0 ,,YES
+io.opentracing.contrib:opentracingspringweb:2.1.3,https://github.com/opentracingcontrib/javaspringweb/opentracingspringweb,Apache Software License Version 2.0 ,,YES
+io.opentracing.contrib:opentracingwebservletfilter:0.3.0,http://github.com/opentracingcontrib/javawebservletfilter/opentracingwebservletfilter,Apache Software License Version 2.0 ,,YES
+io.prometheus:simpleclient:0.8.1,http://github.com/prometheus/client_java/simpleclient,Apache Software License Version 2.0 ,,YES
+io.prometheus:simpleclient_common:0.8.1,http://github.com/prometheus/client_java/simpleclient_common,Apache Software License Version 2.0 ,,YES
+net.minidev:accessorssmart:1.2,http://www.minidev.net/,Apache Software License Version 2.0 ,,YES
+net.minidev:jsonsmart:2.3,http://www.minidev.net/,Apache Software License Version 2.0 ,,YES
+org.apache.thrift:libthrift:0.13.0,http://thrift.apache.org,Apache Software License Version 2.0 ,,YES
+org.jboss.logging:jbosslogging:3.4.1.Final,http://www.jboss.org,Apache Software License Version 2.0 ,,YES
+org.jetbrains:annotations:13.0,http://www.jetbrains.org,Apache Software License Version 2.0 ,,YES
+org.objenesis:objenesis:2.6,http://objenesis.org,Apache Software License Version 2.0 ,,YES
+org.skyscreamer:jsonassert:1.5.0,https://github.com/skyscreamer/JSONassert,Apache Software License Version 2.0 ,,YES
+org.xmlunit:xmlunitcore:2.6.3,https://www.xmlunit.org/,Apache Software License Version 2.0 ,,YES
+pl.pragmatists:JUnitParams:1.1.1,https://github.com/Pragmatists/JUnitParams,Apache Software License Version 2.0 ,,YES
+org.hamcrest:hamcrest:2.1,http://hamcrest.org/JavaHamcrest/,BSD Licence 3 ,,YES
+org.hamcrest:hamcrestcore:2.1,http://hamcrest.org/JavaHamcrest/,BSD Licence 3 ,,YES
+org.ow2.asm:asm:5.0.4,http://asm.objectweb.org/asm/,BSD License ,,YES
+org.hdrhistogram:HdrHistogram:2.1.12,http://hdrhistogram.github.io/HdrHistogram/,BSD-2-Clause ,,YES
+javax.annotation:javax.annotationapi:1.3.2,http://jcp.org/en/jsr/detail?id=250,CDDL + GPLv2 with classpath exception ,,YES
+jakarta.annotation:jakarta.annotationapi:1.3.5,https://projects.eclipse.org/projects/ee4j.ca,Common Development and Distribution License (CDDL) ,,YES
+jakarta.activation:jakarta.activationapi:1.2.1,https://github.com/eclipseee4j/jaf/jakarta.activationapi,EDL 1.0 ,,YES
+jakarta.annotation:jakarta.annotationapi:1.3.5,https://projects.eclipse.org/projects/ee4j.ca,EPL 2.0 ,,YES
+jakarta.xml.bind:jakarta.xml.bindapi:2.3.2,https://github.com/eclipseee4j/jaxbapi/jakarta.xml.bindapi,Eclipse Distribution License - v 1.0 ,,YES
+junit:junit:4.12,http://junit.org,Eclipse Public License 1.0 ,,YES
+org.junit.jupiter:junitjupiter:5.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.junit.jupiter:junitjupiterapi:5.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.junit.jupiter:junitjupiterengine:5.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.junit.jupiter:junitjupiterparams:5.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.junit.platform:junitplatformcommons:1.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.junit.platform:junitplatformengine:1.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.junit.vintage:junitvintageengine:5.5.2,https://junit.org/junit5/,Eclipse Public License v2.0 ,,YES
+org.checkerframework:checkerqual:2.11.1,https://checkerframework.org,MIT License ,,YES
+org.codehaus.mojo:animalsnifferannotations:1.17,http://www.mojohaus.org/animalsniffer/animalsnifferannotations,MIT License ,,YES
+org.mockito:mockitocore:3.1.0,https://github.com/mockito/mockito,MIT License ,,YES
+org.mockito:mockitojunitjupiter:3.1.0,https://github.com/mockito/mockito,MIT License ,,YES
+org.ojalgo:ojalgo:48.2.0,http://ojalgo.org,MIT License ,,YES
+org.slf4j:jultoslf4j:1.7.28,http://www.slf4j.org,MIT License ,,YES
+org.slf4j:slf4japi:1.7.28,http://www.slf4j.org,MIT License ,,YES
+org.hdrhistogram:HdrHistogram:2.1.12,http://hdrhistogram.github.io/HdrHistogram/,Public Domain per Creative Commons CC0 ,,YES
+org.latencyutils:LatencyUtils:2.0.3,http://latencyutils.github.io/LatencyUtils/,Public Domain per Creative Commons CC0 ,,YES
+io.jaegertracing:jaegerclient:1.3.1,https://github.com/jaegertracing/jaegerclientjava,The Apache License Version 2.0 ,,YES
+io.jaegertracing:jaegercore:1.3.1,https://github.com/jaegertracing/jaegerclientjava,The Apache License Version 2.0 ,,YES
+io.jaegertracing:jaegerthrift:1.3.1,https://github.com/jaegertracing/jaegerclientjava,The Apache License Version 2.0 ,,YES
+io.jaegertracing:jaegertracerresolver:1.3.1,https://github.com/jaegertracing/jaegerclientjava,The Apache License Version 2.0 ,,YES
+io.opencensus:opencensusapi:0.21.0,https://github.com/censusinstrumentation/opencensusjava,The Apache License Version 2.0 ,,YES
+io.opencensus:opencensuscontribgrpcmetrics:0.21.0,https://github.com/censusinstrumentation/opencensusjava,The Apache License Version 2.0 ,,YES
+org.apiguardian:apiguardianapi:1.1.0,https://github.com/apiguardianteam/apiguardian,The Apache License Version 2.0 ,,YES
+org.jetbrains.kotlin:kotlinstdlib:1.3.50,https://kotlinlang.org/,The Apache License Version 2.0 ,,YES
+org.jetbrains.kotlin:kotlinstdlibcommon:1.3.50,https://kotlinlang.org/,The Apache License Version 2.0 ,,YES
+org.opentest4j:opentest4j:1.2.0,https://github.com/ota4jteam/opentest4j,The Apache License Version 2.0 ,,YES
