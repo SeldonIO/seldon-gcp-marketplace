@@ -15,7 +15,13 @@ rm engine.csv
 make engine.csv
 ```
 
-Then to capture screenshots of the licenses in the images
+Then to capture screenshots of the licenses in the images.
+
+Ensure all images are built.
+
+```
+cd .. && make build_all
+```
 
 For operator and executor
 

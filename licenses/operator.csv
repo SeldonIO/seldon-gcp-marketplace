@@ -3,7 +3,6 @@ googleapis/google-cloud-go,https://github.com/googleapis/google-cloud-go/blob/ma
 Azure/go-ansiterm,https://github.com/Azure/go-ansiterm/blob/master/LICENSE,MIT License,,YES
 Azure/go-autorest,https://github.com/Azure/go-autorest/blob/master/LICENSE,Apache License 2.0,,YES
 BurntSushi/toml,https://github.com/BurntSushi/toml/blob/master/COPYING,MIT License,,YES
-BurntSushi/xgb,https://github.com/BurntSushi/xgb/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 NYTimes/gziphandler,https://github.com/nytimes/gziphandler/blob/master/LICENSE,Apache License 2.0,,YES
 PuerkitoBio/purell,https://github.com/PuerkitoBio/purell/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 PuerkitoBio/urlesc,https://github.com/PuerkitoBio/urlesc/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
@@ -16,6 +15,7 @@ asaskevich/govalidator,https://github.com/asaskevich/govalidator/blob/master/LIC
 beorn7/perks,https://github.com/beorn7/perks/blob/master/LICENSE,MIT License,,YES
 bgentry/speakeasy,https://github.com/bgentry/speakeasy/blob/master/LICENSE,MIT License,,YES
 blang/semver,https://github.com/blang/semver/blob/master/LICENSE,MIT License,,YES
+census-instrumentation/opencensus-proto,https://github.com/census-instrumentation/opencensus-proto/blob/master/LICENSE,Apache License 2.0,,YES
 client9/misspell,https://github.com/client9/misspell/blob/master/LICENSE,MIT License,,YES
 cockroachdb/datadriven,https://github.com/cockroachdb/datadriven/blob/master/LICENSE,Apache License 2.0,,YES
 coreos/etcd,https://github.com/etcd-io/etcd/blob/master/LICENSE,Apache License 2.0,,YES
@@ -35,6 +35,8 @@ docopt/docopt-go,https://github.com/docopt/docopt.go/blob/master/LICENSE,MIT Lic
 dustin/go-humanize,https://github.com/dustin/go-humanize/blob/master/LICENSE,MIT License,,YES
 elazarl/goproxy,https://github.com/elazarl/goproxy/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 emicklei/go-restful,https://github.com/emicklei/go-restful/blob/master/LICENSE,MIT License,,YES
+envoyproxy/go-control-plane,https://github.com/envoyproxy/go-control-plane/blob/master/LICENSE,Apache License 2.0,,YES
+envoyproxy/protoc-gen-validate,https://github.com/envoyproxy/protoc-gen-validate/blob/master/LICENSE,Apache License 2.0,,YES
 evanphx/json-patch,https://github.com/evanphx/json-patch/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 fatih/color,https://github.com/fatih/color/blob/master/LICENSE.md,MIT License,,YES
 fsnotify/fsnotify,https://github.com/fsnotify/fsnotify/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
@@ -80,6 +82,7 @@ hashicorp/hcl,https://github.com/hashicorp/hcl/blob/master/LICENSE,Mozilla Publi
 hpcloud/tail,https://github.com/hpcloud/tail/blob/master/LICENSE.txt,MIT License,,YES
 imdario/mergo,https://github.com/imdario/mergo/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 inconshreveable/mousetrap,https://github.com/inconshreveable/mousetrap/blob/master/LICENSE,Apache License 2.0,,YES
+jessevdk/go-flags,https://github.com/jessevdk/go-flags/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 jonboulle/clockwork,https://github.com/jonboulle/clockwork/blob/master/LICENSE,Apache License 2.0,,YES
 json-iterator/go,https://github.com/json-iterator/go/blob/master/LICENSE,MIT License,,YES
 jstemmer/go-junit-report,https://github.com/jstemmer/go-junit-report/blob/master/LICENSE,MIT License,,YES
@@ -117,7 +120,6 @@ prometheus/client_golang,https://github.com/prometheus/client_golang/blob/master
 prometheus/client_model,https://github.com/prometheus/client_model/blob/master/LICENSE,Apache License 2.0,,YES
 prometheus/common,https://github.com/prometheus/common/blob/master/LICENSE,Apache License 2.0,,YES
 prometheus/procfs,https://github.com/prometheus/procfs/blob/master/LICENSE,Apache License 2.0,,YES
-remyoudompheng/bigfft,https://github.com/remyoudompheng/bigfft/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 rogpeppe/fastuuid,https://github.com/rogpeppe/fastuuid/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 rogpeppe/go-internal,https://github.com/rogpeppe/go-internal/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 russross/blackfriday,https://github.com/russross/blackfriday/blob/master/LICENSE.txt,BSD 2-Clause "Simplified" License,,YES
@@ -149,9 +151,7 @@ uber-go/tools,https://github.com/uber-go/tools/blob/master/LICENSE,MIT License,,
 uber-go/zap,https://github.com/uber-go/zap/blob/master/LICENSE.txt,MIT License,,YES
 golang/crypto,https://github.com/golang/crypto/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/exp,https://github.com/golang/exp/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-golang/image,https://github.com/golang/image/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/lint,https://github.com/golang/lint/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-golang/mobile,https://github.com/golang/mobile/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/mod,https://github.com/golang/mod/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/net,https://github.com/golang/net/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/oauth2,https://github.com/golang/oauth2/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
@@ -162,8 +162,6 @@ golang/time,https://github.com/golang/time/blob/master/LICENSE,BSD 3-Clause "New
 golang/tools,https://github.com/golang/tools/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/xerrors,https://github.com/golang/xerrors/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 gomodules/jsonpatch,https://github.com/gomodules/jsonpatch/blob/master/LICENSE,Apache License 2.0,,YES
-gonum/gonum,https://github.com/gonum/gonum/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-gonum/netlib,https://github.com/gonum/netlib/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 googleapis/google-api-go-client,https://github.com/googleapis/google-api-go-client/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 golang/appengine,https://github.com/golang/appengine/blob/master/LICENSE,Apache License 2.0,,YES
 googleapis/go-genproto,https://github.com/googleapis/go-genproto/blob/master/LICENSE,Apache License 2.0,,YES
@@ -196,11 +194,6 @@ kubernetes/klog,https://github.com/kubernetes/klog/blob/master/LICENSE,Apache Li
 kubernetes/kube-openapi,https://github.com/kubernetes/kube-openapi/blob/master/LICENSE,Apache License 2.0,,YES
 kubernetes/utils,https://github.com/kubernetes/utils/blob/master/LICENSE,Apache License 2.0,,YES
 knative/pkg,https://github.com/knative/pkg/blob/master/LICENSE,Apache License 2.0,,YES
-cznic/cc,https://github.com/cznic/cc/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-cznic/golex,https://github.com/cznic/golex/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-cznic/mathutil,https://github.com/cznic/mathutil/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-cznic/strutil,https://github.com/cznic/strutil/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
-cznic/xc,https://github.com/cznic/xc/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 kubernetes-sigs/controller-runtime,https://github.com/kubernetes-sigs/controller-runtime/blob/master/LICENSE,Apache License 2.0,,YES
 kubernetes-sigs/structured-merge-diff,https://github.com/kubernetes-sigs/structured-merge-diff/blob/master/LICENSE,Apache License 2.0,,YES
 kubernetes-sigs/yaml,https://github.com/kubernetes-sigs/yaml/blob/master/LICENSE,MIT License,,YES

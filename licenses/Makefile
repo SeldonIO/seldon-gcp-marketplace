@@ -1,16 +1,19 @@
 SHELL=/bin/bash
 
-VERSION=1.2.3
+VERSION=1.3.0
 
 seldon-core:
 	git clone -b v${VERSION}  https://github.com/SeldonIO/seldon-core.git
 
 
-executor.csv:
+executor.csv: seldon-core
 	cut -d, -f 1,2,3 seldon-core/executor/licenses/license_info.csv | sed 's/$$/,,YES/'  > executor.csv
 
-operator.csv:
+operator.csv: seldon-core
 	cut -d, -f 1,2,3 seldon-core/operator/licenses/license_info.csv | sed 's/$$/,,YES/'  > operator.csv
+
+engine.txt: seldon-core
+	cd seldon-core/engine && mvn verify && cp target/generated-sources/license/LICENSES_THIRD_PARTY ../../engine.txt
 
 engine2.txt:
 	cat engine.txt | sed 's/^.*\*.*\((.*:.* - .*)\)/\*\1/' > engine2.txt
@@ -31,3 +34,4 @@ show_engine_licenses:
 
 clean:
 	rm -f engine2.txt
+	rm -rf seldon-core
