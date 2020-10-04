@@ -1,7 +1,10 @@
+
+List of third-party dependencies grouped by their license type.
+
     3-Clause BSD License:
 
-        * Protocol Buffers [Core] (com.google.protobuf:protobuf-java:3.11.3 - https://developers.google.com/protocol-buffers/protobuf-java/)
-        * Protocol Buffers [Util] (com.google.protobuf:protobuf-java-util:3.11.3 - https://developers.google.com/protocol-buffers/protobuf-java-util/)
+        * Protocol Buffers [Core] (com.google.protobuf:protobuf-java:3.13.0 - https://developers.google.com/protocol-buffers/protobuf-java/)
+        * Protocol Buffers [Util] (com.google.protobuf:protobuf-java-util:3.13.0 - https://developers.google.com/protocol-buffers/protobuf-java-util/)
 
     Apache 2.0:
 
@@ -76,7 +79,8 @@
         * Spring Boot Test Auto-Configure (org.springframework.boot:spring-boot-test-autoconfigure:2.2.0.RELEASE - https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-test-autoconfigure)
         * SnakeYAML (org.yaml:snakeyaml:1.25 - http://www.snakeyaml.org)
 
-    Apache Software License, Version 2.0:
+    Apache Software License, Version
+                2.0:
 
         * ClassMate (com.fasterxml:classmate:1.5.0 - http://github.com/FasterXML/java-classmate)
         * Jackson-annotations (com.fasterxml.jackson.core:jackson-annotations:2.11.1 - http://github.com/FasterXML/jackson)
@@ -91,9 +95,9 @@
         * Guava ListenableFuture only (com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava - https://github.com/google/guava/listenablefuture)
         * J2ObjC Annotations (com.google.j2objc:j2objc-annotations:1.3 - https://github.com/google/j2objc/)
         * project ':json-path' (com.jayway.jsonpath:json-path:2.4.0 - https://github.com/jayway/JsonPath)
-        * okhttp (com.squareup.okhttp3:okhttp:4.8.0 - https://square.github.io/okhttp/)
-        * Okio (com.squareup.okio:okio:2.7.0 - https://github.com/square/okio/)
-        * client-java-proto (io.kubernetes:client-java-proto:7.0.0 - https://github.com/kubernetes-client/java)
+        * okhttp (com.squareup.okhttp3:okhttp:4.9.0 - https://square.github.io/okhttp/)
+        * Okio (com.squareup.okio:okio:2.8.0 - https://github.com/square/okio/)
+        * client-java-proto (io.kubernetes:client-java-proto:9.0.1 - https://github.com/kubernetes-client/java)
         * micrometer-core (io.micrometer:micrometer-core:1.5.2 - https://github.com/micrometer-metrics/micrometer)
         * micrometer-registry-prometheus (io.micrometer:micrometer-registry-prometheus:1.5.2 - https://github.com/micrometer-metrics/micrometer)
         * OpenTracing API (io.opentracing:opentracing-api:0.33.0 - https://github.com/opentracing/opentracing-java/opentracing-api)
@@ -132,7 +136,8 @@
 
         * javax.annotation API (javax.annotation:javax.annotation-api:1.3.2 - http://jcp.org/en/jsr/detail?id=250)
 
-    Common Development and Distribution License (CDDL):
+    Common Development and Distribution
+                License (CDDL):
 
         * Jakarta Annotations API (jakarta.annotation:jakarta.annotation-api:1.3.5 - https://projects.eclipse.org/projects/ee4j.ca)
 
@@ -168,7 +173,7 @@
         * Animal Sniffer Annotations (org.codehaus.mojo:animal-sniffer-annotations:1.17 - http://www.mojohaus.org/animal-sniffer/animal-sniffer-annotations)
         * mockito-core (org.mockito:mockito-core:3.1.0 - https://github.com/mockito/mockito)
         * mockito-junit-jupiter (org.mockito:mockito-junit-jupiter:3.1.0 - https://github.com/mockito/mockito)
-        * ojAlgo (org.ojalgo:ojalgo:48.2.0 - http://ojalgo.org)
+        * ojAlgo (org.ojalgo:ojalgo:48.3.0 - http://ojalgo.org)
         * JUL to SLF4J bridge (org.slf4j:jul-to-slf4j:1.7.28 - http://www.slf4j.org)
         * SLF4J API Module (org.slf4j:slf4j-api:1.7.28 - http://www.slf4j.org)
 
@@ -179,10 +184,10 @@
 
     The Apache License, Version 2.0:
 
-        * jaeger-client (io.jaegertracing:jaeger-client:1.3.1 - https://github.com/jaegertracing/jaeger-client-java)
-        * jaeger-client (io.jaegertracing:jaeger-core:1.3.1 - https://github.com/jaegertracing/jaeger-client-java)
-        * jaeger-client (io.jaegertracing:jaeger-thrift:1.3.1 - https://github.com/jaegertracing/jaeger-client-java)
-        * jaeger-client (io.jaegertracing:jaeger-tracerresolver:1.3.1 - https://github.com/jaegertracing/jaeger-client-java)
+        * jaeger-client (io.jaegertracing:jaeger-client:1.4.0 - https://github.com/jaegertracing/jaeger-client-java)
+        * jaeger-client (io.jaegertracing:jaeger-core:1.4.0 - https://github.com/jaegertracing/jaeger-client-java)
+        * jaeger-client (io.jaegertracing:jaeger-thrift:1.4.0 - https://github.com/jaegertracing/jaeger-client-java)
+        * jaeger-client (io.jaegertracing:jaeger-tracerresolver:1.4.0 - https://github.com/jaegertracing/jaeger-client-java)
         * OpenCensus (io.opencensus:opencensus-api:0.21.0 - https://github.com/census-instrumentation/opencensus-java)
         * OpenCensus (io.opencensus:opencensus-contrib-grpc-metrics:0.21.0 - https://github.com/census-instrumentation/opencensus-java)
         * org.apiguardian:apiguardian-api (org.apiguardian:apiguardian-api:1.1.0 - https://github.com/apiguardian-team/apiguardian)
