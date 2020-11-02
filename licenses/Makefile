@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-VERSION=1.3.0
+VERSION=1.4.0
 
 seldon-core:
 	git clone -b v${VERSION}  https://github.com/SeldonIO/seldon-core.git

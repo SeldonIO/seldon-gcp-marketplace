@@ -26,8 +26,8 @@ cd .. && make build_all
 For operator and executor
 
 ```
-show_operator_licenses
-show_executor_licenses
+make show_operator_licenses
+make show_executor_licenses
 ```
 
 Screenshot the terminal and extract images for licenses and mpl library source and copy those to this folder
@@ -41,5 +41,5 @@ show_engine_licenses
 
 Screenshot the terminal.
 
-Update spreadsheets for google with csvs and images.
+Update spreadsheets for google with csvs and images if licenses have changed.
 
