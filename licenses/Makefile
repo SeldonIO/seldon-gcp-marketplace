@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 
-VERSION=1.4.0
+VERSION=1.5.0
 
 seldon-core:
 	git clone -b v${VERSION}  https://github.com/SeldonIO/seldon-core.git
@@ -31,7 +31,12 @@ show_executor_licenses:
 show_engine_licenses:
 	docker run -it --rm --entrypoint find seldonio/engine:${VERSION} /licenses
 
+.PHONY: update_all
+update_all: clean operator.csv executor.csv engine.csv
 
 clean:
+	rm -f operator.csv
+	rm -f executor.csv
+	rm -f engine.csv
 	rm -f engine2.txt
 	rm -rf seldon-core

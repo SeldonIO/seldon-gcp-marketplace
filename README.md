@@ -54,9 +54,13 @@ Change the PULL_TAG and TAG setttings for the new release:
 
 Run
 
+Update licenses see [here](licenses/README.md).
+
 ```
 make build_all push_all
 ```
+
+Create a GKE cluster.
 
 Install application CRD
 

@@ -1,18 +1,11 @@
 To update licenses
 
-```
-rm operator.csv
-make operator.csv
-```
+Update makefile and update VERSION to current.
+
+Remove any existing seldon-core folder
 
 ```
-rm executor.csv
-make executor.csv
-```
-
-```
-rm engine.csv
-make engine.csv
+make update_all
 ```
 
 Then to capture screenshots of the licenses in the images.
