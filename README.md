@@ -10,6 +10,8 @@ To update the market place for a new release of Seldon Core.
  1. Update the images in the release project
  1. Inform google of update via control panel and email
 
+Estimated time: 1-2 hours.
+
 ### Update Chart and Test
 
 Update the Makefile to fetch the latest helm chart by changing the CHART_VERSION
@@ -85,6 +87,8 @@ To dpeloy and verify via creating a model as described in apptest chart run
 ```
 make verify
 ```
+
+Update license by following [license README](./licenses/README.md)
 
 ## Publish
 

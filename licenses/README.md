@@ -5,7 +5,7 @@ Update makefile and update VERSION to current.
 Remove any existing seldon-core folder
 
 ```
-make update_all
+make clean update_all
 ```
 
 Then to capture screenshots of the licenses in the images.
@@ -29,10 +29,13 @@ Screenshot the terminal and extract images for licenses and mpl library source a
 For engine
 
 ```
-show_engine_licenses
+make show_engine_licenses
 ```
 
 Screenshot the terminal.
 
 Update spreadsheets for google with csvs and images if licenses have changed.
 
+Do this by appending the csvs created. In Google sheets select Import and choose "Append to current sheet". Remove existing licenses and append.
+
+You will need to update to YES the columns where the source has been included in the image, such as hashicorp-golang-lru.
