@@ -22,7 +22,7 @@ engine:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/engine
-    tag: 1.6.0
+    tag: 1.7.0
   logMessagesExternally: false
   port: 8000
   prometheus:
@@ -40,7 +40,7 @@ executor:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/seldon-core-executor
-    tag: 1.6.0
+    tag: 1.7.0
   metricsPortName: metrics
   port: 8000
   prometheus:
@@ -56,12 +56,12 @@ executor:
     name: default
   user: 8888
 explainer:
-  image: seldonio/alibiexplainer:1.6.0
+  image: seldonio/alibiexplainer:1.7.0
 image:
   pullPolicy: IfNotPresent
   registry: docker.io
   repository: seldonio/seldon-core-operator
-  tag: 1.6.0
+  tag: 1.7.0
 istio:
   enabled: false
   gateway: istio-system/seldon-gateway
@@ -85,7 +85,7 @@ predictor_servers:
   MLFLOW_SERVER:
     protocols:
       seldon:
-        defaultImageVersion: 1.6.0
+        defaultImageVersion: 1.7.0
         image: seldonio/mlflowserver
   SKLEARN_SERVER:
     protocols:
@@ -93,12 +93,12 @@ predictor_servers:
         defaultImageVersion: 0.1.1
         image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.6.0
+        defaultImageVersion: 1.7.0
         image: seldonio/sklearnserver
   TENSORFLOW_SERVER:
     protocols:
       seldon:
-        defaultImageVersion: 1.6.0
+        defaultImageVersion: 1.7.0
         image: seldonio/tfserving-proxy
       tensorflow:
         defaultImageVersion: 2.1.0
@@ -114,7 +114,7 @@ predictor_servers:
         defaultImageVersion: 0.1.1
         image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.6.0
+        defaultImageVersion: 1.7.0
         image: seldonio/xgboostserver
 rbac:
   configmap:
