@@ -17,8 +17,13 @@ Estimated time: 1-2 hours.
 Update the Makefile to fetch the latest helm chart by changing the CHART_VERSION
 
 ```
-CHART_VERSION ?= 1.2.1
+TAG ?= 1.7
+CHART_VERSION ?= 1.7.0
+PULL_TAG ?= 1.7.0
 ```
+
+For GCP if there is a change in TAG (i.e. not a semver bugfix update 1.2.1 -> 1.2.3) then this will be a new TAG in GCP as opposed to an update to an existing TAG.
+
 
 Run
 

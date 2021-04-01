@@ -24,7 +24,7 @@ BurntSushi/xgb,https://github.com/BurntSushi/xgb/blob/master/LICENSE,BSD 3-Claus
 DataDog/zstd,https://github.com/DataDog/zstd/blob/1.x/LICENSE,BSD 2-Clause "Simplified" License,,YES
 Djarvur/go-err113,https://github.com/Djarvur/go-err113/blob/master/LICENSE,MIT License,,YES
 GoogleCloudPlatform/cloud-builders,https://github.com/GoogleCloudPlatform/cloud-builders/blob/master/LICENSE,Apache License 2.0,,YES
-GoogleCloudPlatform/cloudsql-proxy,https://github.com/GoogleCloudPlatform/cloudsql-proxy/blob/master/LICENSE,Apache License 2.0,,YES
+GoogleCloudPlatform/cloudsql-proxy,https://github.com/GoogleCloudPlatform/cloudsql-proxy/blob/main/LICENSE,Apache License 2.0,,YES
 GoogleCloudPlatform/k8s-cloud-provider,https://github.com/GoogleCloudPlatform/k8s-cloud-provider/blob/master/LICENSE,Apache License 2.0,,YES
 GoogleCloudPlatform/testgrid,https://github.com/GoogleCloudPlatform/testgrid/blob/master/LICENSE,Apache License 2.0,,YES
 Huawei/gophercloud,https://github.com/Huawei/gophercloud/blob/master/LICENSE,Apache License 2.0,,YES
@@ -70,7 +70,7 @@ aryann/difflib,https://github.com/aryann/difflib/blob/master/LICENSE,MIT License
 asaskevich/govalidator,https://github.com/asaskevich/govalidator/blob/master/LICENSE,MIT License,,YES
 aws/aws-k8s-tester,https://github.com/aws/aws-k8s-tester/blob/master/LICENSE,Apache License 2.0,,YES
 aws/aws-lambda-go,https://github.com/aws/aws-lambda-go/blob/master/LICENSE,Apache License 2.0,,YES
-aws/aws-sdk-go,https://github.com/aws/aws-sdk-go/blob/master/LICENSE.txt,Apache License 2.0,,YES
+aws/aws-sdk-go,https://github.com/aws/aws-sdk-go/blob/main/LICENSE.txt,Apache License 2.0,,YES
 aws/aws-sdk-go-v2,https://github.com/aws/aws-sdk-go-v2/blob/main/LICENSE.txt,Apache License 2.0,,YES
 aybabtme/rgbterm,https://github.com/aybabtme/rgbterm/blob/master/LICENSE,MIT License,,YES
 bazelbuild/buildtools,https://github.com/bazelbuild/buildtools/blob/master/LICENSE,Apache License 2.0,,YES
@@ -102,7 +102,7 @@ clarketm/json,https://github.com/clarketm/json/blob/master/LICENSE,BSD 3-Clause 
 clbanning/x2j,https://github.com/clbanning/x2j/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 client9/misspell,https://github.com/client9/misspell/blob/master/LICENSE,MIT License,,YES
 cloudevents/sdk-go,https://github.com/cloudevents/sdk-go/blob/master/LICENSE,Apache License 2.0,,YES
-cncf/udpa,https://github.com/cncf/udpa/blob/master/LICENSE,Apache License 2.0,,YES
+cncf/udpa,https://github.com/cncf/udpa/blob/main/LICENSE,Apache License 2.0,,YES
 cockroachdb/datadriven,https://github.com/cockroachdb/datadriven/blob/master/LICENSE,Apache License 2.0,,YES
 codahale/hdrhistogram,https://github.com/HdrHistogram/hdrhistogram-go/blob/master/LICENSE,MIT License,,YES
 confluentinc/confluent-kafka-go,https://github.com/confluentinc/confluent-kafka-go/blob/master/LICENSE,Apache License 2.0,,YES
@@ -299,7 +299,7 @@ hashicorp/go-uuid,https://github.com/hashicorp/go-uuid/blob/master/LICENSE,Mozil
 hashicorp/go-version,https://github.com/hashicorp/go-version/blob/master/LICENSE,Mozilla Public License 2.0,,YES
 hashicorp/go.net,https://github.com/hashicorp/go.net/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 hashicorp/golang-lru,https://github.com/hashicorp/golang-lru/blob/master/LICENSE,Mozilla Public License 2.0,,YES
-hashicorp/hcl,https://github.com/hashicorp/hcl/blob/master/LICENSE,Mozilla Public License 2.0,,YES
+hashicorp/hcl,https://github.com/hashicorp/hcl/blob/main/LICENSE,Mozilla Public License 2.0,,YES
 hashicorp/logutils,https://github.com/hashicorp/logutils/blob/master/LICENSE,Mozilla Public License 2.0,,YES
 hashicorp/mdns,https://github.com/hashicorp/mdns/blob/master/LICENSE,MIT License,,YES
 hashicorp/memberlist,https://github.com/hashicorp/memberlist/blob/master/LICENSE,Mozilla Public License 2.0,,YES
@@ -451,7 +451,7 @@ posener/complete,https://github.com/posener/complete/blob/v1/LICENSE.txt,MIT Lic
 pquerna/cachecontrol,https://github.com/pquerna/cachecontrol/blob/master/LICENSE,Apache License 2.0,,YES
 prometheus/client_golang,https://github.com/prometheus/client_golang/blob/master/LICENSE,Apache License 2.0,,YES
 prometheus/client_model,https://github.com/prometheus/client_model/blob/master/LICENSE,Apache License 2.0,,YES
-prometheus/common,https://github.com/prometheus/common/blob/master/LICENSE,Apache License 2.0,,YES
+prometheus/common,https://github.com/prometheus/common/blob/main/LICENSE,Apache License 2.0,,YES
 prometheus/procfs,https://github.com/prometheus/procfs/blob/master/LICENSE,Apache License 2.0,,YES
 prometheus/statsd_exporter,https://github.com/prometheus/statsd_exporter/blob/master/LICENSE,Apache License 2.0,,YES
 prometheus/tsdb,https://github.com/prometheus-junkyard/tsdb/blob/master/LICENSE,Apache License 2.0,,YES
@@ -505,8 +505,8 @@ stretchr/testify,https://github.com/stretchr/testify/blob/master/LICENSE,MIT Lic
 subosito/gotenv,https://github.com/subosito/gotenv/blob/master/LICENSE,MIT License,,YES
 syndtr/gocapability,https://github.com/syndtr/gocapability/blob/master/LICENSE,BSD 2-Clause "Simplified" License,,YES
 tdakkota/asciicheck,https://github.com/tdakkota/asciicheck/blob/master/LICENSE,MIT License,,YES
-tektoncd/pipeline,https://github.com/tektoncd/pipeline/blob/master/LICENSE,Apache License 2.0,,YES
-tektoncd/plumbing,https://github.com/tektoncd/plumbing/blob/master/LICENSE,Apache License 2.0,,YES
+tektoncd/pipeline,https://github.com/tektoncd/pipeline/blob/main/LICENSE,Apache License 2.0,,YES
+tektoncd/plumbing,https://github.com/tektoncd/plumbing/blob/main/LICENSE,Apache License 2.0,,YES
 tensorflow/tensorflow,https://github.com/tensorflow/tensorflow/blob/master/LICENSE,Apache License 2.0,,YES
 tetafro/godot,https://github.com/tetafro/godot/blob/master/LICENSE,MIT License,,YES
 tidwall/gjson,https://github.com/tidwall/gjson/blob/master/LICENSE,MIT License,,YES
@@ -538,9 +538,6 @@ xanzy/go-gitlab,https://github.com/xanzy/go-gitlab/blob/master/LICENSE,Apache Li
 xanzy/ssh-agent,https://github.com/xanzy/ssh-agent/blob/master/LICENSE,Apache License 2.0,,YES
 xdg/scram,https://github.com/xdg-go/scram/blob/master/LICENSE,Apache License 2.0,,YES
 xdg/stringprep,https://github.com/xdg-go/stringprep/blob/master/LICENSE,Apache License 2.0,,YES
-xeipuuv/gojsonpointer,https://github.com/xeipuuv/gojsonpointer/blob/master/LICENSE-APACHE-2.0.txt,Apache License 2.0,,YES
-xeipuuv/gojsonreference,https://github.com/xeipuuv/gojsonreference/blob/master/LICENSE-APACHE-2.0.txt,Apache License 2.0,,YES
-xeipuuv/gojsonschema,https://github.com/xeipuuv/gojsonschema/blob/master/LICENSE-APACHE-2.0.txt,Apache License 2.0,,YES
 xi2/xz,https://github.com/xi2/xz/blob/master/LICENSE,Public Domain License,,YES
 xiang90/probing,https://github.com/xiang90/probing/blob/master/LICENSE,MIT License,,YES
 xlab/handysort,https://github.com/xlab/handysort/blob/master/LICENSE,MIT License,,YES
@@ -624,10 +621,10 @@ kubernetes/legacy-cloud-providers,https://github.com/kubernetes/legacy-cloud-pro
 kubernetes/metrics,https://github.com/kubernetes/metrics/blob/master/LICENSE,Apache License 2.0,,YES
 kubernetes/test-infra,https://github.com/kubernetes/test-infra/blob/master/LICENSE,Apache License 2.0,,YES
 kubernetes/utils,https://github.com/kubernetes/utils/blob/master/LICENSE,Apache License 2.0,,YES
-knative/caching,https://github.com/knative/caching/blob/master/LICENSE,Apache License 2.0,,YES
-knative/eventing-contrib,https://github.com/knative/eventing-contrib/blob/master/LICENSE,Apache License 2.0,,YES
-knative/pkg,https://github.com/knative/pkg/blob/master/LICENSE,Apache License 2.0,,YES
-knative/test-infra,https://github.com/knative/test-infra/blob/master/LICENSE,Apache License 2.0,,YES
+knative/caching,https://github.com/knative/caching/blob/main/LICENSE,Apache License 2.0,,YES
+knative/eventing-contrib,https://github.com/knative/eventing-contrib/blob/main/LICENSE,Apache License 2.0,,YES
+knative/pkg,https://github.com/knative/pkg/blob/main/LICENSE,Apache License 2.0,,YES
+knative/test-infra,https://github.com/knative/test-infra/blob/main/LICENSE,Apache License 2.0,,YES
 cznic/cc,https://github.com/cznic/cc/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 cznic/golex,https://github.com/cznic/golex/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
 cznic/mathutil,https://github.com/cznic/mathutil/blob/master/LICENSE,BSD 3-Clause "New" or "Revised" License,,YES
