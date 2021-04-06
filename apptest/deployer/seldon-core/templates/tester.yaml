@@ -40,19 +40,19 @@ data:
     set -x
     curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.18.0/bin/linux/amd64/kubectl
     chmod +x ./kubectl
-    ./kubectl create -f /tester/model.yaml
+    ./kubectl create -f /tester/model.yaml -n ${NAMESPACE}
     sleep 5
-    ./kubectl rollout status deploy.apps/$(./kubectl get deploy.apps -l seldon-deployment-id=rest-seldon -o jsonpath='{.items[0].metadata.name}')
+    ./kubectl rollout status deploy.apps/$(./kubectl get deploy.apps -l seldon-deployment-id=rest-seldon -o jsonpath='{.items[0].metadata.name}' -n ${NAMESPACE}) -n ${NAMESPACE}
     sleep 20
     http_status_code=$(curl -o /dev/null -s -w "%{http_code}\n" http://rest-seldon-model.${NAMESPACE}:8000/api/v1.0/predictions -d '{"data": {"ndarray":[[1.0, 2.0, 5.0]]}}' -H "Content-Type: application/json")
     echo "Expected http status code: 200"
     echo "Actual http status code: $http_status_code"
     if [[ "$http_status_code" == "200" ]]; then
       echo SUCCESS
-      ./kubectl delete -f /tester/model.yaml
+      ./kubectl delete -f /tester/model.yaml -n ${NAMESPACE}
     else
       echo FAILURE
-      ./kubectl delete -f /tester/model.yaml
+      ./kubectl delete -f /tester/model.yaml -n ${NAMESPACE}
       exit 1
     fi
   model.yaml: |-
