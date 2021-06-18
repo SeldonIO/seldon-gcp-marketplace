@@ -6,7 +6,6 @@ metadata:
   annotations:
     cert-manager.io/inject-ca-from: '{{ include "seldon.namespace" . }}/seldon-serving-cert'
     controller-gen.kubebuilder.io/version: v0.4.1
-  creationTimestamp: null
   name: seldondeployments.machinelearning.seldon.io
 spec:
   group: machinelearning.seldon.io
@@ -4880,6 +4879,9 @@ spec:
                           type: string
                         modelUri:
                           type: string
+                        replicas:
+                          format: int32
+                          type: integer
                         serviceAccountName:
                           type: string
                         storageInitializerImage:
@@ -4974,6 +4976,8 @@ spec:
                                                                                       type: array
                                                                                     serviceAccountName:
                                                                                       type: string
+                                                                                    storageInitializerImage:
+                                                                                      type: string
                                                                                     type:
                                                                                       type: string
                                                                                   required:
@@ -5034,6 +5038,8 @@ spec:
                                                                                   type: object
                                                                                 type: array
                                                                               serviceAccountName:
+                                                                                type: string
+                                                                              storageInitializerImage:
                                                                                 type: string
                                                                               type:
                                                                                 type: string
@@ -5096,6 +5102,8 @@ spec:
                                                                           type: array
                                                                         serviceAccountName:
                                                                           type: string
+                                                                        storageInitializerImage:
+                                                                          type: string
                                                                         type:
                                                                           type: string
                                                                       required:
@@ -5156,6 +5164,8 @@ spec:
                                                                       type: object
                                                                     type: array
                                                                   serviceAccountName:
+                                                                    type: string
+                                                                  storageInitializerImage:
                                                                     type: string
                                                                   type:
                                                                     type: string
@@ -5218,6 +5228,8 @@ spec:
                                                               type: array
                                                             serviceAccountName:
                                                               type: string
+                                                            storageInitializerImage:
+                                                              type: string
                                                             type:
                                                               type: string
                                                           required:
@@ -5278,6 +5290,8 @@ spec:
                                                           type: object
                                                         type: array
                                                       serviceAccountName:
+                                                        type: string
+                                                      storageInitializerImage:
                                                         type: string
                                                       type:
                                                         type: string
@@ -5340,6 +5354,8 @@ spec:
                                                   type: array
                                                 serviceAccountName:
                                                   type: string
+                                                storageInitializerImage:
+                                                  type: string
                                                 type:
                                                   type: string
                                               required:
@@ -5400,6 +5416,8 @@ spec:
                                               type: object
                                             type: array
                                           serviceAccountName:
+                                            type: string
+                                          storageInitializerImage:
                                             type: string
                                           type:
                                             type: string
@@ -5462,6 +5480,8 @@ spec:
                                       type: array
                                     serviceAccountName:
                                       type: string
+                                    storageInitializerImage:
+                                      type: string
                                     type:
                                       type: string
                                   required:
@@ -5523,6 +5543,8 @@ spec:
                                 type: array
                               serviceAccountName:
                                 type: string
+                              storageInitializerImage:
+                                type: string
                               type:
                                 type: string
                             required:
@@ -5583,6 +5605,8 @@ spec:
                             type: object
                           type: array
                         serviceAccountName:
+                          type: string
+                        storageInitializerImage:
                           type: string
                         type:
                           type: string
@@ -10650,6 +10674,9 @@ spec:
                           type: string
                         modelUri:
                           type: string
+                        replicas:
+                          format: int32
+                          type: integer
                         serviceAccountName:
                           type: string
                         storageInitializerImage:
@@ -10744,6 +10771,8 @@ spec:
                                                                                       type: array
                                                                                     serviceAccountName:
                                                                                       type: string
+                                                                                    storageInitializerImage:
+                                                                                      type: string
                                                                                     type:
                                                                                       type: string
                                                                                   required:
@@ -10804,6 +10833,8 @@ spec:
                                                                                   type: object
                                                                                 type: array
                                                                               serviceAccountName:
+                                                                                type: string
+                                                                              storageInitializerImage:
                                                                                 type: string
                                                                               type:
                                                                                 type: string
@@ -10866,6 +10897,8 @@ spec:
                                                                           type: array
                                                                         serviceAccountName:
                                                                           type: string
+                                                                        storageInitializerImage:
+                                                                          type: string
                                                                         type:
                                                                           type: string
                                                                       required:
@@ -10926,6 +10959,8 @@ spec:
                                                                       type: object
                                                                     type: array
                                                                   serviceAccountName:
+                                                                    type: string
+                                                                  storageInitializerImage:
                                                                     type: string
                                                                   type:
                                                                     type: string
@@ -10988,6 +11023,8 @@ spec:
                                                               type: array
                                                             serviceAccountName:
                                                               type: string
+                                                            storageInitializerImage:
+                                                              type: string
                                                             type:
                                                               type: string
                                                           required:
@@ -11048,6 +11085,8 @@ spec:
                                                           type: object
                                                         type: array
                                                       serviceAccountName:
+                                                        type: string
+                                                      storageInitializerImage:
                                                         type: string
                                                       type:
                                                         type: string
@@ -11110,6 +11149,8 @@ spec:
                                                   type: array
                                                 serviceAccountName:
                                                   type: string
+                                                storageInitializerImage:
+                                                  type: string
                                                 type:
                                                   type: string
                                               required:
@@ -11170,6 +11211,8 @@ spec:
                                               type: object
                                             type: array
                                           serviceAccountName:
+                                            type: string
+                                          storageInitializerImage:
                                             type: string
                                           type:
                                             type: string
@@ -11232,6 +11275,8 @@ spec:
                                       type: array
                                     serviceAccountName:
                                       type: string
+                                    storageInitializerImage:
+                                      type: string
                                     type:
                                       type: string
                                   required:
@@ -11293,6 +11338,8 @@ spec:
                                 type: array
                               serviceAccountName:
                                 type: string
+                              storageInitializerImage:
+                                type: string
                               type:
                                 type: string
                             required:
@@ -11353,6 +11400,8 @@ spec:
                             type: object
                           type: array
                         serviceAccountName:
+                          type: string
+                        storageInitializerImage:
                           type: string
                         type:
                           type: string
@@ -16420,6 +16469,9 @@ spec:
                           type: string
                         modelUri:
                           type: string
+                        replicas:
+                          format: int32
+                          type: integer
                         serviceAccountName:
                           type: string
                         storageInitializerImage:
@@ -16514,6 +16566,8 @@ spec:
                                                                                       type: array
                                                                                     serviceAccountName:
                                                                                       type: string
+                                                                                    storageInitializerImage:
+                                                                                      type: string
                                                                                     type:
                                                                                       type: string
                                                                                   required:
@@ -16574,6 +16628,8 @@ spec:
                                                                                   type: object
                                                                                 type: array
                                                                               serviceAccountName:
+                                                                                type: string
+                                                                              storageInitializerImage:
                                                                                 type: string
                                                                               type:
                                                                                 type: string
@@ -16636,6 +16692,8 @@ spec:
                                                                           type: array
                                                                         serviceAccountName:
                                                                           type: string
+                                                                        storageInitializerImage:
+                                                                          type: string
                                                                         type:
                                                                           type: string
                                                                       required:
@@ -16696,6 +16754,8 @@ spec:
                                                                       type: object
                                                                     type: array
                                                                   serviceAccountName:
+                                                                    type: string
+                                                                  storageInitializerImage:
                                                                     type: string
                                                                   type:
                                                                     type: string
@@ -16758,6 +16818,8 @@ spec:
                                                               type: array
                                                             serviceAccountName:
                                                               type: string
+                                                            storageInitializerImage:
+                                                              type: string
                                                             type:
                                                               type: string
                                                           required:
@@ -16818,6 +16880,8 @@ spec:
                                                           type: object
                                                         type: array
                                                       serviceAccountName:
+                                                        type: string
+                                                      storageInitializerImage:
                                                         type: string
                                                       type:
                                                         type: string
@@ -16880,6 +16944,8 @@ spec:
                                                   type: array
                                                 serviceAccountName:
                                                   type: string
+                                                storageInitializerImage:
+                                                  type: string
                                                 type:
                                                   type: string
                                               required:
@@ -16940,6 +17006,8 @@ spec:
                                               type: object
                                             type: array
                                           serviceAccountName:
+                                            type: string
+                                          storageInitializerImage:
                                             type: string
                                           type:
                                             type: string
@@ -17002,6 +17070,8 @@ spec:
                                       type: array
                                     serviceAccountName:
                                       type: string
+                                    storageInitializerImage:
+                                      type: string
                                     type:
                                       type: string
                                   required:
@@ -17063,6 +17133,8 @@ spec:
                                 type: array
                               serviceAccountName:
                                 type: string
+                              storageInitializerImage:
+                                type: string
                               type:
                                 type: string
                             required:
@@ -17123,6 +17195,8 @@ spec:
                             type: object
                           type: array
                         serviceAccountName:
+                          type: string
+                        storageInitializerImage:
                           type: string
                         type:
                           type: string
