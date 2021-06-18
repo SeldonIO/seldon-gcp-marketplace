@@ -22,7 +22,7 @@ engine:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/engine
-    tag: 1.7.0
+    tag: 1.9.0
   logMessagesExternally: false
   port: 8000
   prometheus:
@@ -40,7 +40,7 @@ executor:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/seldon-core-executor
-    tag: 1.7.0
+    tag: 1.9.0
   metricsPortName: metrics
   port: 8000
   prometheus:
@@ -56,12 +56,12 @@ executor:
     name: default
   user: 8888
 explainer:
-  image: seldonio/alibiexplainer:1.7.0
+  image: seldonio/alibiexplainer:1.9.0
 image:
   pullPolicy: IfNotPresent
   registry: docker.io
   repository: seldonio/seldon-core-operator
-  tag: 1.7.0
+  tag: 1.9.0
 istio:
   enabled: false
   gateway: istio-system/seldon-gateway
@@ -72,6 +72,7 @@ kubeflow: false
 manager:
   cpuLimit: 500m
   cpuRequest: 100m
+  logLevel: INFO
   memoryLimit: 300Mi
   memoryRequest: 200Mi
 managerCreateResources: true
@@ -79,26 +80,32 @@ managerUserID: 8888
 namespaceOverride: ''
 predictiveUnit:
   defaultEnvSecretRefName: ''
+  grpcPort: 9500
+  httpPort: 9000
   metricsPortName: metrics
-  port: 9000
 predictor_servers:
   MLFLOW_SERVER:
     protocols:
       seldon:
-        defaultImageVersion: 1.7.0
+        defaultImageVersion: 1.9.0
         image: seldonio/mlflowserver
   SKLEARN_SERVER:
     protocols:
       kfserving:
-        defaultImageVersion: 0.1.1
+        defaultImageVersion: 0.3.2
         image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.7.0
+        defaultImageVersion: 1.9.0
         image: seldonio/sklearnserver
+  TEMPO_SERVER:
+    protocols:
+      kfserving:
+        defaultImageVersion: 0.3.2
+        image: seldonio/mlserver
   TENSORFLOW_SERVER:
     protocols:
       seldon:
-        defaultImageVersion: 1.7.0
+        defaultImageVersion: 1.9.0
         image: seldonio/tfserving-proxy
       tensorflow:
         defaultImageVersion: 2.1.0
@@ -111,10 +118,10 @@ predictor_servers:
   XGBOOST_SERVER:
     protocols:
       kfserving:
-        defaultImageVersion: 0.1.1
+        defaultImageVersion: 0.3.2
         image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.7.0
+        defaultImageVersion: 1.9.0
         image: seldonio/xgboostserver
 rbac:
   configmap:
@@ -127,7 +134,7 @@ singleNamespace: false
 storageInitializer:
   cpuLimit: '1'
   cpuRequest: 100m
-  image: gcr.io/kfserving/storage-initializer:v0.4.0
+  image: seldonio/rclone-storage-initializer:1.9.0
   memoryLimit: 1Gi
   memoryRequest: 100Mi
 usageMetrics:
