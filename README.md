@@ -93,7 +93,7 @@ To dpeloy and verify via creating a model as described in apptest chart run
 make verify
 ```
 
-Update license by following [license README](./licenses/README.md)
+**Update licenses by following [license README](./licenses/README.md)**
 
 ## Publish
 
