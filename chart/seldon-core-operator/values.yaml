@@ -22,7 +22,7 @@ engine:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/engine
-    tag: 1.9.0
+    tag: 1.11.0
   logMessagesExternally: false
   port: 8000
   prometheus:
@@ -40,7 +40,7 @@ executor:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/seldon-core-executor
-    tag: 1.9.0
+    tag: 1.11.0
   metricsPortName: metrics
   port: 8000
   prometheus:
@@ -56,12 +56,12 @@ executor:
     name: default
   user: 8888
 explainer:
-  image: seldonio/alibiexplainer:1.9.0
+  image: seldonio/alibiexplainer:1.11.0
 image:
   pullPolicy: IfNotPresent
   registry: docker.io
   repository: seldonio/seldon-core-operator
-  tag: 1.9.0
+  tag: 1.11.0
 istio:
   enabled: false
   gateway: istio-system/seldon-gateway
@@ -72,6 +72,7 @@ kubeflow: false
 manager:
   cpuLimit: 500m
   cpuRequest: 100m
+  leaderElectionID: a33bd623.machinelearning.seldon.io
   logLevel: INFO
   memoryLimit: 300Mi
   memoryRequest: 200Mi
@@ -86,26 +87,29 @@ predictiveUnit:
 predictor_servers:
   MLFLOW_SERVER:
     protocols:
+      kfserving:
+        defaultImageVersion: 0.5.0
+        image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.9.0
+        defaultImageVersion: 1.11.0
         image: seldonio/mlflowserver
   SKLEARN_SERVER:
     protocols:
       kfserving:
-        defaultImageVersion: 0.3.2
+        defaultImageVersion: 0.5.0
         image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.9.0
+        defaultImageVersion: 1.11.0
         image: seldonio/sklearnserver
   TEMPO_SERVER:
     protocols:
       kfserving:
-        defaultImageVersion: 0.3.2
+        defaultImageVersion: 0.5.0
         image: seldonio/mlserver
   TENSORFLOW_SERVER:
     protocols:
       seldon:
-        defaultImageVersion: 1.9.0
+        defaultImageVersion: 1.11.0
         image: seldonio/tfserving-proxy
       tensorflow:
         defaultImageVersion: 2.1.0
@@ -113,15 +117,15 @@ predictor_servers:
   TRITON_SERVER:
     protocols:
       kfserving:
-        defaultImageVersion: 20.08-py3
+        defaultImageVersion: 21.08-py3
         image: nvcr.io/nvidia/tritonserver
   XGBOOST_SERVER:
     protocols:
       kfserving:
-        defaultImageVersion: 0.3.2
+        defaultImageVersion: 0.5.0
         image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.9.0
+        defaultImageVersion: 1.11.0
         image: seldonio/xgboostserver
 rbac:
   configmap:
@@ -134,7 +138,7 @@ singleNamespace: false
 storageInitializer:
   cpuLimit: '1'
   cpuRequest: 100m
-  image: seldonio/rclone-storage-initializer:1.9.0
+  image: seldonio/rclone-storage-initializer:1.11.0
   memoryLimit: 1Gi
   memoryRequest: 100Mi
 usageMetrics:
