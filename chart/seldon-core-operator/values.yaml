@@ -5,6 +5,7 @@ certManager:
   enabled: false
 controllerId: ''
 crd:
+  annotations: {}
   create: false
   forceV1: false
   forceV1beta1: false
@@ -15,38 +16,20 @@ credentials:
     s3AccessKeyIDName: awsAccessKeyID
     s3SecretAccessKeyName: awsSecretAccessKey
 defaultUserID: '8888'
-engine:
-  grpc:
-    port: 5001
-  image:
-    pullPolicy: IfNotPresent
-    registry: docker.io
-    repository: seldonio/engine
-    tag: 1.11.0
-  logMessagesExternally: false
-  port: 8000
-  prometheus:
-    path: /prometheus
-  resources:
-    cpuLimit: 500m
-    cpuRequest: 500m
-    memoryLimit: 512Mi
-    memoryRequest: 512Mi
-  serviceAccount:
-    name: default
-  user: 8888
 executor:
   image:
     pullPolicy: IfNotPresent
     registry: docker.io
     repository: seldonio/seldon-core-executor
-    tag: 1.11.0
+    tag: 1.13.1
   metricsPortName: metrics
   port: 8000
   prometheus:
     path: /prometheus
   requestLogger:
     defaultEndpoint: http://default-broker
+    workQueueSize: 10000
+    writeTimeoutMs: 2000
   resources:
     cpuLimit: 500m
     cpuRequest: 500m
@@ -56,12 +39,13 @@ executor:
     name: default
   user: 8888
 explainer:
-  image: seldonio/alibiexplainer:1.11.0
+  image: seldonio/alibiexplainer:1.13.1
+  image_v2: seldonio/mlserver:1.0.0-alibi-explain
 image:
   pullPolicy: IfNotPresent
   registry: docker.io
   repository: seldonio/seldon-core-operator
-  tag: 1.11.0
+  tag: 1.13.1
 istio:
   enabled: false
   gateway: istio-system/seldon-gateway
@@ -70,8 +54,11 @@ keda:
   enabled: false
 kubeflow: false
 manager:
+  annotations: {}
+  containerSecurityContext: {}
   cpuLimit: 500m
   cpuRequest: 100m
+  deploymentNameAsPrefix: false
   leaderElectionID: a33bd623.machinelearning.seldon.io
   logLevel: INFO
   memoryLimit: 300Mi
@@ -87,46 +74,46 @@ predictiveUnit:
 predictor_servers:
   MLFLOW_SERVER:
     protocols:
-      kfserving:
-        defaultImageVersion: 0.5.0
-        image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.11.0
+        defaultImageVersion: 1.13.1
         image: seldonio/mlflowserver
+      v2:
+        defaultImageVersion: 1.0.0-mlflow
+        image: seldonio/mlserver
   SKLEARN_SERVER:
     protocols:
-      kfserving:
-        defaultImageVersion: 0.5.0
-        image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.11.0
+        defaultImageVersion: 1.13.1
         image: seldonio/sklearnserver
+      v2:
+        defaultImageVersion: 1.0.0-sklearn
+        image: seldonio/mlserver
   TEMPO_SERVER:
     protocols:
-      kfserving:
-        defaultImageVersion: 0.5.0
+      v2:
+        defaultImageVersion: 1.0.0-slim
         image: seldonio/mlserver
   TENSORFLOW_SERVER:
     protocols:
       seldon:
-        defaultImageVersion: 1.11.0
+        defaultImageVersion: 1.13.1
         image: seldonio/tfserving-proxy
       tensorflow:
         defaultImageVersion: 2.1.0
         image: tensorflow/serving
   TRITON_SERVER:
     protocols:
-      kfserving:
+      v2:
         defaultImageVersion: 21.08-py3
         image: nvcr.io/nvidia/tritonserver
   XGBOOST_SERVER:
     protocols:
-      kfserving:
-        defaultImageVersion: 0.5.0
-        image: seldonio/mlserver
       seldon:
-        defaultImageVersion: 1.11.0
+        defaultImageVersion: 1.13.1
         image: seldonio/xgboostserver
+      v2:
+        defaultImageVersion: 1.0.0-xgboost
+        image: seldonio/mlserver
 rbac:
   configmap:
     create: true
@@ -138,7 +125,7 @@ singleNamespace: false
 storageInitializer:
   cpuLimit: '1'
   cpuRequest: 100m
-  image: seldonio/rclone-storage-initializer:1.11.0
+  image: seldonio/rclone-storage-initializer:1.13.1
   memoryLimit: 1Gi
   memoryRequest: 100Mi
 usageMetrics:

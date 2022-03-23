@@ -1,8 +1,8 @@
 SHELL=/bin/bash
 
-TAG ?= 1.11
-CHART_VERSION ?= 1.11.0
-PULL_TAG ?= 1.11.0
+TAG ?= 1.13
+CHART_VERSION ?= 1.13.1
+PULL_TAG ?= 1.13.1
 
 APP_NAME=seldon-core
 REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
@@ -73,15 +73,6 @@ push_operator:
 	docker push "$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)"
 	docker push "$(REGISTRY)/seldonio/${APP_NAME}:$(TAG)"
 
-build_engine:
-	docker pull seldonio/engine:$(PULL_TAG)
-	docker tag seldonio/engine:$(PULL_TAG) "$(REGISTRY)/seldonio/${APP_NAME}/engine:$(PULL_TAG)"
-	docker tag seldonio/engine:$(PULL_TAG) "$(REGISTRY)/seldonio/${APP_NAME}/engine:$(TAG)"
-
-push_engine:
-	docker push "$(REGISTRY)/seldonio/${APP_NAME}/engine:$(PULL_TAG)"
-	docker push "$(REGISTRY)/seldonio/${APP_NAME}/engine:$(TAG)"
-
 build_executor:
 	docker pull seldonio/seldon-core-executor:$(PULL_TAG)
 	docker tag seldonio/seldon-core-executor:$(PULL_TAG) "$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)"
@@ -100,8 +91,8 @@ push_tester:
 	docker push "$(REGISTRY)/seldonio/tester:$(PULL_TAG)"
 	docker push "$(REGISTRY)/seldonio/tester:$(TAG)"
 
-build_all: build_deployer build_operator build_engine build_executor build_tester
-push_all: push_deployer push_operator push_engine push_executor push_tester
+build_all: build_deployer build_operator build_executor build_tester
+push_all: push_deployer push_operator push_executor push_tester
 
 test: update-chart build_all push_all verify
 

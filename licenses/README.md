@@ -26,14 +26,6 @@ make show_executor_licenses
 Screenshot the terminal and extract images for licenses and mpl library source and copy those to this folder
 
 
-For engine
-
-```
-make show_engine_licenses
-```
-
-Screenshot the terminal.
-
 Update spreadsheets for google with csvs and images if licenses have changed.
 
 Do this by appending the csvs created. In Google sheets select Import and choose "Append to current sheet". Remove existing licenses and append.
