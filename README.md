@@ -28,7 +28,7 @@ For GCP if there is a change in TAG (i.e. not a semver bugfix update 1.2.1 -> 1.
 Run
 
 ```
-make update_chart
+make update-chart
 ```
 
 This will
