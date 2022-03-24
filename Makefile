@@ -35,7 +35,7 @@ create-test-ns:
 deploy: create-test-ns
 	mpdev /scripts/install \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
-		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)'", "engineImage":"'$(REGISTRY)/seldonio/${APP_NAME}/engine:$(PULL_TAG)'"}'
+		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)'"}'
 
 # There is no automated undeploy available after a deploy.
 undeploy:
@@ -48,7 +48,7 @@ undeploy:
 verify:
 	mpdev /scripts/verify \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
-		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)'", "engineImage":"'$(REGISTRY)/seldonio/${APP_NAME}/engine:$(PULL_TAG)'"}'
+		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)'"}'
 
 
 #
