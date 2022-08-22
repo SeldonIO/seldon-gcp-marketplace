@@ -1,7 +1,7 @@
 application_api_version: v1beta1
 properties:
   executorImage:
-    default: gcr.io/seldon-core-public/seldonio/seldon-core/seldon-core-executor:1.13
+    default: gcr.io/seldon-core-public/seldonio/seldon-core/seldon-core-executor:1.14.1
     description: Seldon Service Orchestrator image.
     type: string
     x-google-marketplace:
@@ -29,7 +29,7 @@ properties:
     x-google-marketplace:
       type: NAMESPACE
   operatorImage:
-    default: gcr.io/seldon-core-public/seldonio/seldon-core:1.13
+    default: gcr.io/seldon-core-public/seldonio/seldon-core:1.14.1
     description: Seldon Operator image
     type: string
     x-google-marketplace:
