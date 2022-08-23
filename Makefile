@@ -98,6 +98,3 @@ test: update-chart build_all push_all verify
 
 clean:
 	rm -rf chart
-
-install-k8s-applications-resource:
-	kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/application/master/deploy/kube-app-manager-aio.yaml
