@@ -1,8 +1,8 @@
 SHELL=/bin/bash
 
-TAG ?= 1.13
-CHART_VERSION ?= 1.13.1
-PULL_TAG ?= 1.13.1
+TAG ?= 1.14
+CHART_VERSION ?= 1.14.1
+PULL_TAG ?= 1.14.1
 
 APP_NAME=seldon-core
 REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
@@ -18,11 +18,11 @@ update-chart:
 	cp resources/application.yaml chart/seldon-core-operator/templates
 
 check:
-	mpdev /scripts/doctor
+	./scripts/mpdev.sh /scripts/doctor
 
 #test-install:
 #	kubectl create namespace test-ns
-#	mpdev /scripts/install \
+#	./scripts/mpdev.sh /scripts/install \
 #		--deployer=$REGISTRY/$APP_NAME/deployer \
 #		--parameters='{"name": "test-deployment", "namespace": "test-ns"}'
 
@@ -33,7 +33,7 @@ create-test-ns:
 	kubectl create ns test-ns || echo "namespace test-ns exists"
 
 deploy: create-test-ns
-	mpdev /scripts/install \
+	./scripts/mpdev.sh /scripts/install \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
 		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)'"}'
 
@@ -46,7 +46,7 @@ undeploy:
 	kubectl delete crd seldondeployments.machinelearning.seldon.io --ignore-not-found=true
 
 verify:
-	mpdev /scripts/verify \
+	./scripts/mpdev.sh /scripts/verify \
 		--deployer=${REGISTRY}/seldonio/${APP_NAME}/deployer:${TAG} \
 		--parameters='{"name": "test-deployment", "namespace": "test-ns", "operatorImage": "'$(REGISTRY)/seldonio/${APP_NAME}:$(PULL_TAG)'", "executorImage":"'$(REGISTRY)/seldonio/${APP_NAME}/seldon-core-executor:$(PULL_TAG)'"}'
 

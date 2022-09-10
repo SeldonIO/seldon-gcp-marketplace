@@ -51,7 +51,10 @@ Next build all the images. For this you will need:
 
  * A kubernetes cluster connected with kubectl access
  * An active GCP project, e.g.
-   * `gcloud config configurations activate seldon-demos`
+   * We use the `klaw-project` project by default
+   * Make sure you are authenticated (`gcloud auth login`)
+   * You can set it with `gcloud config set project seldon-demos`
+   * You can check its set with `gcloud config get-value project`
 
 
 Change the PULL_TAG and TAG setttings for the new release:
@@ -87,7 +90,7 @@ To remove the artifacts run
 make undeploy
 ```
 
-To dpeloy and verify via creating a model as described in apptest chart run
+To deploy and verify via creating a model as described in apptest chart run
 
 ```
 make verify
@@ -96,6 +99,11 @@ make verify
 **Update licenses by following [license README](./licenses/README.md)**
 
 ## Publish
+
+Make sure the spreadsheets are updated:
+
+* [Executor Spreadsheet](https://docs.google.com/spreadsheets/d/1RFG4TqzipdV8GTpWl8O3lZfc7uvb2h3jftcBL62knrE/edit#gid=1834865489)
+* [Operator Spreadsheet](https://docs.google.com/spreadsheets/d/1aRZotyw9rqdMafUhh8_YrSA7uXQyvygGP9wtFD1C1zI/edit#gid=213073333)
 
 Build and push images to the staging project
 
