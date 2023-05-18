@@ -108,7 +108,7 @@ Make sure the spreadsheets are updated:
 Build and push images to the staging project
 
 ```
-gcloud config configurations activate seldon-core-public
+gcloud config set project seldon-core-public
 ```
 
 Build and push all images again. They will be built and tag with the new project repo and pushed.

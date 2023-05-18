@@ -1,8 +1,8 @@
 SHELL=/bin/bash
 
-TAG ?= 1.14
-CHART_VERSION ?= 1.14.1
-PULL_TAG ?= 1.14.1
+TAG ?= 1.16
+CHART_VERSION ?= 1.16.0
+PULL_TAG ?= 1.16.0
 
 APP_NAME=seldon-core
 REGISTRY=gcr.io/$(shell gcloud config get-value project | tr ':' '/')
